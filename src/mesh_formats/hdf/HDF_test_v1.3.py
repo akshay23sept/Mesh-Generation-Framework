@@ -24,6 +24,7 @@ print 'Writing 1 Dimensional Scalars'
 dataset_1d= hdf5.create_dataset('Scalars', (length,),
                               dtype=[('Pressure', '<f8'),
                                      ('Node','<f8')])
+                                     
 dataset_1d['Pressure'] = pressure
 dataset_1d['Node'] = node
 
