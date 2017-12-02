@@ -1,6 +1,19 @@
 import numpy as np
 import h5py
 raw_mesh= np.loadtxt('raw_mesh.data')
+#create a NaN case 
+#if NaN found yell out the location of NaN
+e=np.isnan(raw_mesh)
+shape=e.shape
+
+for i in range(0,shape[0]):
+        for j in range (0,shape[1]):
+                if e[i,j]==True:
+                        print 'A NaN exists at Node', i,'element',j
+                        print 'Replacing NaN with Zero'
+                        raw_mesh[i,j]=0.00
+  
+
 length=raw_mesh.shape[0]
 
 print 'Creating Datasets'
