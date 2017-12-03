@@ -1,0 +1,152 @@
+\hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager Class Reference}
+\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager}}
+Inheritance diagram for h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.666667cm]{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_ad4ae8a329ba0186e379690b54fb6d000}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, parent)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a5c97a9eaefc7b107f1c7be2d7b8bb3df}{\+\_\+\+\_\+getitem\+\_\+\+\_\+} (self, name)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a6f548cf0a4306cc8ebd88bc666473c36}{\+\_\+\+\_\+setitem\+\_\+\+\_\+} (self, name, value)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a21ab06c8260ed6bd8b71dc061d4bd8d0}{\+\_\+\+\_\+delitem\+\_\+\+\_\+} (self, name)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a485b851bb62a163f16f0c29113d11312}{create} (self, name, data, shape=None, dtype=None)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a3dfa17073e54977bb867c1f3359065a9}{modify} (self, name, value)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a637d2372d4e47d64b31235db263b8e37}{\+\_\+\+\_\+len\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a09d9dc48a04bb8da3a5c839d84fa8e9e}{\+\_\+\+\_\+iter\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a9b58ceebd97f80f015e13c1e53db6646}{\+\_\+\+\_\+contains\+\_\+\+\_\+} (self, name)
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_ac18b3ca9131bb55cbb2eda173765e76e}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_ac18b3ca9131bb55cbb2eda173765e76e}} 
+def {\bfseries \+\_\+\+\_\+repr\+\_\+\+\_\+} (self)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    Allows dictionary-style access to an HDF5 object's attributes.
+
+    These are created exclusively by the library and are available as
+    a Python attribute at <object>.attrs
+
+    Like Group objects, attributes provide a minimal dictionary-
+    style interface.  Anything which can be reasonably converted to a
+    Numpy array or Numpy scalar can be stored.
+
+    Attributes are automatically created on assignment with the
+    syntax <obj>.attrs[name] = value, with the HDF5 type automatically
+    deduced from the value.  Existing attributes are overwritten.
+
+    To modify an existing attribute while preserving its type, use the
+    method modify().  To specify an attribute of a particular type and
+    shape, use create().
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_ad4ae8a329ba0186e379690b54fb6d000}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_ad4ae8a329ba0186e379690b54fb6d000}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parent }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Private constructor.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a9b58ceebd97f80f015e13c1e53db6646}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a9b58ceebd97f80f015e13c1e53db6646}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+contains\+\_\+\+\_\+@{\+\_\+\+\_\+contains\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+contains\+\_\+\+\_\+@{\+\_\+\+\_\+contains\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+contains\+\_\+\+\_\+()}{\_\_contains\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+contains\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Determine if an attribute exists, by name. \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a21ab06c8260ed6bd8b71dc061d4bd8d0}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a21ab06c8260ed6bd8b71dc061d4bd8d0}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+delitem\+\_\+\+\_\+@{\+\_\+\+\_\+delitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+delitem\+\_\+\+\_\+@{\+\_\+\+\_\+delitem\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+delitem\+\_\+\+\_\+()}{\_\_delitem\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+delitem\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Delete an attribute (which must already exist). \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a5c97a9eaefc7b107f1c7be2d7b8bb3df}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a5c97a9eaefc7b107f1c7be2d7b8bb3df}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+getitem\+\_\+\+\_\+()}{\_\_getitem\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+getitem\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Read the value of an attribute.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a09d9dc48a04bb8da3a5c839d84fa8e9e}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a09d9dc48a04bb8da3a5c839d84fa8e9e}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+iter\+\_\+\+\_\+@{\+\_\+\+\_\+iter\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+iter\+\_\+\+\_\+@{\+\_\+\+\_\+iter\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+iter\+\_\+\+\_\+()}{\_\_iter\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+iter\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Iterate over the names of attributes. \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a637d2372d4e47d64b31235db263b8e37}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a637d2372d4e47d64b31235db263b8e37}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+len\+\_\+\+\_\+@{\+\_\+\+\_\+len\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+len\+\_\+\+\_\+@{\+\_\+\+\_\+len\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+len\+\_\+\+\_\+()}{\_\_len\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+len\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Number of attributes attached to the object. \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a6f548cf0a4306cc8ebd88bc666473c36}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a6f548cf0a4306cc8ebd88bc666473c36}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!\+\_\+\+\_\+setitem\+\_\+\+\_\+@{\+\_\+\+\_\+setitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+setitem\+\_\+\+\_\+@{\+\_\+\+\_\+setitem\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+setitem\+\_\+\+\_\+()}{\_\_setitem\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+\_\+\+\_\+setitem\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set a new attribute, overwriting any existing attribute.
+
+The type and shape of the attribute are determined from the data.  To
+use a specific type or shape, or to preserve the type of an attribute,
+use the methods create() and modify().
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a485b851bb62a163f16f0c29113d11312}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a485b851bb62a163f16f0c29113d11312}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!create@{create}}
+\index{create@{create}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+create (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name,  }\item[{}]{data,  }\item[{}]{shape = {\ttfamily None},  }\item[{}]{dtype = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a new attribute, overwriting any existing attribute.
+
+name
+    Name of the new attribute (required)
+data
+    An array to initialize the attribute (required)
+shape
+    Shape of the attribute.  Overrides data.shape if both are
+    given, in which case the total number of points must be unchanged.
+dtype
+    Data type of the attribute.  Overrides data.dtype if both
+    are given.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a3dfa17073e54977bb867c1f3359065a9}\label{classh5py__LOCAL_1_1__hl_1_1attrs_1_1AttributeManager_a3dfa17073e54977bb867c1f3359065a9}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}!modify@{modify}}
+\index{modify@{modify}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::attrs\+::\+Attribute\+Manager}}
+\subsubsection{\texorpdfstring{modify()}{modify()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+attrs.\+Attribute\+Manager.\+modify (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Change the value of an attribute while preserving its type.
+
+Differs from __setitem__ in that if the attribute already exists, its
+type is preserved.  This can be very useful for interacting with
+externally generated files.
+
+If the attribute doesn't exist, it will be automatically created.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mesh\+\_\+formats/hdf/h5py\+\_\+\+L\+O\+C\+A\+L/\+\_\+hl/attrs.\+py\end{DoxyCompactItemize}

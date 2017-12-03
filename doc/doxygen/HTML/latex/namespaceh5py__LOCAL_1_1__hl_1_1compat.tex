@@ -1,0 +1,69 @@
+\hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+compat Namespace Reference}
+\label{namespaceh5py__LOCAL_1_1__hl_1_1compat}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+compat@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+compat}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceh5py__LOCAL_1_1__hl_1_1compat_a35e921f00c10f67583d2af9f1d3b575d}{fspath} (path)
+\item 
+def \hyperlink{namespaceh5py__LOCAL_1_1__hl_1_1compat_a1a45bbd1f0d4b6481950a6a083ccb622}{filename\+\_\+encode} (filename)
+\item 
+def \hyperlink{namespaceh5py__LOCAL_1_1__hl_1_1compat_ae4262f370973f368bf6a3b68ab22c5cf}{filename\+\_\+decode} (filename)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat_a5a5ae6c6da3f2221e4656f1836e8f652}\label{namespaceh5py__LOCAL_1_1__hl_1_1compat_a5a5ae6c6da3f2221e4656f1836e8f652}} 
+string {\bfseries W\+I\+N\+D\+O\+W\+S\+\_\+\+E\+N\+C\+O\+D\+I\+NG} = \char`\"{}mbcs\char`\"{}
+\item 
+\mbox{\Hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat_a02be6f1294550ff56a0f3b6204003ecb}\label{namespaceh5py__LOCAL_1_1__hl_1_1compat_a02be6f1294550ff56a0f3b6204003ecb}} 
+{\bfseries fsencode} = \+\_\+fsencode
+\item 
+\mbox{\Hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat_a51b9d1fbed4a05d38f2e2361e9145968}\label{namespaceh5py__LOCAL_1_1__hl_1_1compat_a51b9d1fbed4a05d38f2e2361e9145968}} 
+{\bfseries fsdecode} = \+\_\+fsdecode
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Compatibility module for high-level h5py
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat_ae4262f370973f368bf6a3b68ab22c5cf}\label{namespaceh5py__LOCAL_1_1__hl_1_1compat_ae4262f370973f368bf6a3b68ab22c5cf}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat}!filename\+\_\+decode@{filename\+\_\+decode}}
+\index{filename\+\_\+decode@{filename\+\_\+decode}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat}}
+\subsubsection{\texorpdfstring{filename\+\_\+decode()}{filename\_decode()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+compat.\+filename\+\_\+decode (\begin{DoxyParamCaption}\item[{}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Decode filename used by HDF5 library.
+
+Due to how HDF5 handles filenames on different systems, this should be
+called on any filenames passed from the HDF5 library. See the documentation
+on filenames in h5py for more information.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat_a1a45bbd1f0d4b6481950a6a083ccb622}\label{namespaceh5py__LOCAL_1_1__hl_1_1compat_a1a45bbd1f0d4b6481950a6a083ccb622}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat}!filename\+\_\+encode@{filename\+\_\+encode}}
+\index{filename\+\_\+encode@{filename\+\_\+encode}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat}}
+\subsubsection{\texorpdfstring{filename\+\_\+encode()}{filename\_encode()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+compat.\+filename\+\_\+encode (\begin{DoxyParamCaption}\item[{}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Encode filename for use in the HDF5 library.
+
+Due to how HDF5 handles filenames on different systems, this should be
+called on any filenames passed to the HDF5 library. See the documentation on
+filenames in h5py for more information.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{namespaceh5py__LOCAL_1_1__hl_1_1compat_a35e921f00c10f67583d2af9f1d3b575d}\label{namespaceh5py__LOCAL_1_1__hl_1_1compat_a35e921f00c10f67583d2af9f1d3b575d}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat}!fspath@{fspath}}
+\index{fspath@{fspath}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::compat}}
+\subsubsection{\texorpdfstring{fspath()}{fspath()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+compat.\+fspath (\begin{DoxyParamCaption}\item[{}]{path }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return the string representation of the path.
+If str or bytes is passed in, it is returned unchanged.
+This code comes from PEP 519, modified to support earlier versions of
+python.
+
+This is required for python < 3.6.
+\end{DoxyVerb}
+ 

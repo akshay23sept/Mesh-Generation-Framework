@@ -1,0 +1,105 @@
+\hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection Class Reference}
+\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection}}
+Inheritance diagram for h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.066421cm]{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_aaa51e08873bb726131b50dd33009beda}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac3b41d10d9a5838904dbad4de6428eac}{shape}, spaceid=None)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a73a470fa2f543e6d4ad69424303a2c32}{id} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac3b41d10d9a5838904dbad4de6428eac}{shape} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a430223ccffa1a0f8fa2068f920b7a1aa}{nselect} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac5b25f87335245ea5b1511ca3635e395}{mshape} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a69e0f4c2d6b58878fcb196ad136c4101}{broadcast} (self, target\+\_\+shape)
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a4cc9d7df3ea15b25224a8f472470a043}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a4cc9d7df3ea15b25224a8f472470a043}} 
+def {\bfseries \+\_\+\+\_\+getitem\+\_\+\+\_\+} (self, args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    Base class for HDF5 dataspace selections.  Subclasses support the
+    "selection protocol", which means they have at least the following
+    members:
+    
+    __init__(shape)   => Create a new selection on "shape"-tuple
+    __getitem__(args) => Perform a selection with the range specified.
+                         What args are allowed depends on the
+                         particular subclass in use.
+
+    id (read-only) =>      h5py.h5s.SpaceID instance
+    shape (read-only) =>   The shape of the dataspace.
+    mshape  (read-only) => The shape of the selection region. 
+                           Not guaranteed to fit within "shape", although
+                           the total number of points is less than
+                           product(shape).
+    nselect (read-only) => Number of selected points.  Always equal to
+                           product(mshape).
+
+    broadcast(target_shape) => Return an iterable which yields dataspaces
+                               for read, based on target_shape.
+
+    The base class represents "unshaped" selections (1-D).
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_aaa51e08873bb726131b50dd33009beda}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_aaa51e08873bb726131b50dd33009beda}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{shape,  }\item[{}]{spaceid = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a selection.  Shape may be None if spaceid is given. \end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a69e0f4c2d6b58878fcb196ad136c4101}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a69e0f4c2d6b58878fcb196ad136c4101}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}}
+\subsubsection{\texorpdfstring{broadcast()}{broadcast()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection.\+broadcast (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{target\+\_\+shape }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get an iterable for broadcasting \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a73a470fa2f543e6d4ad69424303a2c32}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a73a470fa2f543e6d4ad69424303a2c32}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}!id@{id}}
+\index{id@{id}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}}
+\subsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection.\+id (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}SpaceID instance \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac5b25f87335245ea5b1511ca3635e395}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac5b25f87335245ea5b1511ca3635e395}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}!mshape@{mshape}}
+\index{mshape@{mshape}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}}
+\subsubsection{\texorpdfstring{mshape()}{mshape()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection.\+mshape (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Shape of selection (always 1-D for this class) \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a430223ccffa1a0f8fa2068f920b7a1aa}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_a430223ccffa1a0f8fa2068f920b7a1aa}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}!nselect@{nselect}}
+\index{nselect@{nselect}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}}
+\subsubsection{\texorpdfstring{nselect()}{nselect()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection.\+nselect (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Number of elements currently selected \end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac3b41d10d9a5838904dbad4de6428eac}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1Selection_ac3b41d10d9a5838904dbad4de6428eac}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}!shape@{shape}}
+\index{shape@{shape}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Selection}}
+\subsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Selection.\+shape (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Shape of whole dataspace \end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mesh\+\_\+formats/hdf/h5py\+\_\+\+L\+O\+C\+A\+L/\+\_\+hl/selections.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Simple\+Selection Class Reference}
+\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Simple\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Simple\+Selection}}
+Inheritance diagram for h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Simple\+Selection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a54f6ea828be0dfc9651fd22cd5ddda32}{mshape} (self)
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_aa850f22fd6d293e7d726c2f5a8eb8b11}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_aa850f22fd6d293e7d726c2f5a8eb8b11}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, shape, args, kwds)
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a58313f99ec1ab378eefd07888656d486}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a58313f99ec1ab378eefd07888656d486}} 
+def {\bfseries \+\_\+\+\_\+getitem\+\_\+\+\_\+} (self, args)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a1bf3c175664ee8570535c49b9903d710}{broadcast} (self, target\+\_\+shape)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a709f8d805febfdbbbf68b2cc57644472}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a709f8d805febfdbbbf68b2cc57644472}} 
+{\bfseries shape}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A single "rectangular" (regular) selection composed of only slices
+    and integer arguments.  Can participate in broadcasting.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a1bf3c175664ee8570535c49b9903d710}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a1bf3c175664ee8570535c49b9903d710}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection}}
+\subsubsection{\texorpdfstring{broadcast()}{broadcast()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Simple\+Selection.\+broadcast (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{target\+\_\+shape }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return an iterator over target dataspaces for broadcasting.
+
+Follows the standard NumPy broadcasting rules against the current
+selection shape (self.mshape).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a54f6ea828be0dfc9651fd22cd5ddda32}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1SimpleSelection_a54f6ea828be0dfc9651fd22cd5ddda32}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection}!mshape@{mshape}}
+\index{mshape@{mshape}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+Simple\+Selection}}
+\subsubsection{\texorpdfstring{mshape()}{mshape()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+Simple\+Selection.\+mshape (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Shape of current selection \end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mesh\+\_\+formats/hdf/h5py\+\_\+\+L\+O\+C\+A\+L/\+\_\+hl/selections.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,56 @@
+\hypertarget{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+datatype.\+Datatype Class Reference}
+\label{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+datatype.\+Datatype@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+datatype.\+Datatype}}
+Inheritance diagram for h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+datatype.\+Datatype\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a76f08784e54e27eac847f1b69482a93b}{dtype} (self)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a37491aeee328996fb79fadce9c3f30bc}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, bind)
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a0595fa3982d660e1e362e8034a21cf7d}\label{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a0595fa3982d660e1e362e8034a21cf7d}} 
+def {\bfseries \+\_\+\+\_\+repr\+\_\+\+\_\+} (self)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    Represents an HDF5 named datatype stored in a file.
+
+    To store a datatype, simply assign it to a name in a group:
+
+    >>> MyGroup["name"] = numpy.dtype("f")
+    >>> named_type = MyGroup["name"]
+    >>> assert named_type.dtype == numpy.dtype("f")
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a37491aeee328996fb79fadce9c3f30bc}\label{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a37491aeee328996fb79fadce9c3f30bc}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+datatype.\+Datatype.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{bind }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a new Datatype object by binding to a low-level TypeID.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a76f08784e54e27eac847f1b69482a93b}\label{classh5py__LOCAL_1_1__hl_1_1datatype_1_1Datatype_a76f08784e54e27eac847f1b69482a93b}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype}!dtype@{dtype}}
+\index{dtype@{dtype}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::datatype\+::\+Datatype}}
+\subsubsection{\texorpdfstring{dtype()}{dtype()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+datatype.\+Datatype.\+dtype (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Numpy dtype equivalent for this datatype\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mesh\+\_\+formats/hdf/h5py\+\_\+\+L\+O\+C\+A\+L/\+\_\+hl/datatype.\+py\end{DoxyCompactItemize}

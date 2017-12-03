@@ -1,0 +1,57 @@
+\hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+\_\+\+Region\+Proxy Class Reference}
+\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+\_\+\+Region\+Proxy}}
+Inheritance diagram for h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+\_\+\+Region\+Proxy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_a2c2d27cfe6e1822817d762e5f8d91279}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, dsid)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_a3ea41f12f66ca405ef99bcfec7d1c649}{\+\_\+\+\_\+getitem\+\_\+\+\_\+} (self, args)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_aeb36cce25ca5956e8ae5f7b70147f7a7}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_aeb36cce25ca5956e8ae5f7b70147f7a7}} 
+{\bfseries id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    Thin proxy object which takes __getitem__-style index arguments and
+    produces RegionReference objects.  Example:
+
+    >>> dset = myfile['dataset']
+    >>> myref = dset.regionref[0:100,20:30]
+    >>> data = dset[myref]\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_a2c2d27cfe6e1822817d762e5f8d91279}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_a2c2d27cfe6e1822817d762e5f8d91279}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+\_\+\+Region\+Proxy.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{dsid }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Supply a h5py.h5d.DatasetID instance \end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_a3ea41f12f66ca405ef99bcfec7d1c649}\label{classh5py__LOCAL_1_1__hl_1_1selections_1_1__RegionProxy_a3ea41f12f66ca405ef99bcfec7d1c649}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy}!\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::selections\+::\+\_\+\+Region\+Proxy}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+getitem\+\_\+\+\_\+()}{\_\_getitem\_\_()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+selections.\+\_\+\+Region\+Proxy.\+\_\+\+\_\+getitem\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Takes arbitrary selection terms and produces a RegionReference
+object.  Selection must be compatible with the dataset.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mesh\+\_\+formats/hdf/h5py\+\_\+\+L\+O\+C\+A\+L/\+\_\+hl/selections.\+py\end{DoxyCompactItemize}

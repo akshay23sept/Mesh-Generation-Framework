@@ -1,0 +1,68 @@
+\hypertarget{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy}{}\section{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+base.\+\_\+\+Region\+Proxy Class Reference}
+\label{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy}\index{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+base.\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+base.\+\_\+\+Region\+Proxy}}
+Inheritance diagram for h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+base.\+\_\+\+Region\+Proxy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a36a17c55284af7b76eee3d439c00a9c8}\label{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a36a17c55284af7b76eee3d439c00a9c8}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, obj)
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a59896f9eb3fc267fe886fbbd42c1a1fd}\label{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a59896f9eb3fc267fe886fbbd42c1a1fd}} 
+def {\bfseries \+\_\+\+\_\+getitem\+\_\+\+\_\+} (self, args)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_ae8e1aa2336abe157428758c46581c70f}{shape} (self, ref)
+\item 
+def \hyperlink{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a40cd1dbb42844bffac84c15482f763ce}{selection} (self, ref)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_ae3fd2164b9aba566106509c731f67aa3}\label{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_ae3fd2164b9aba566106509c731f67aa3}} 
+{\bfseries id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    Proxy object which handles region references.
+
+    To create a new region reference (datasets only), use slicing syntax:
+
+        >>> newref = obj.regionref[0:10:2]
+
+    To determine the target dataset shape from an existing reference:
+
+        >>> shape = obj.regionref.shape(existingref)
+
+    where <obj> may be any object in the file. To determine the shape of
+    the selection in use on the target dataset:
+
+        >>> selection_shape = obj.regionref.selection(existingref)
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a40cd1dbb42844bffac84c15482f763ce}\label{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_a40cd1dbb42844bffac84c15482f763ce}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy}!selection@{selection}}
+\index{selection@{selection}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy}}
+\subsubsection{\texorpdfstring{selection()}{selection()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+base.\+\_\+\+Region\+Proxy.\+selection (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ref }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the shape of the target dataspace selection referred to by *ref*
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_ae8e1aa2336abe157428758c46581c70f}\label{classh5py__LOCAL_1_1__hl_1_1base_1_1__RegionProxy_ae8e1aa2336abe157428758c46581c70f}} 
+\index{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy}!shape@{shape}}
+\index{shape@{shape}!h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy@{h5py\+\_\+\+L\+O\+C\+A\+L\+::\+\_\+hl\+::base\+::\+\_\+\+Region\+Proxy}}
+\subsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily def h5py\+\_\+\+L\+O\+C\+A\+L.\+\_\+hl.\+base.\+\_\+\+Region\+Proxy.\+shape (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ref }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the shape of the target dataspace referred to by *ref*. \end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mesh\+\_\+formats/hdf/h5py\+\_\+\+L\+O\+C\+A\+L/\+\_\+hl/base.\+py\end{DoxyCompactItemize}
