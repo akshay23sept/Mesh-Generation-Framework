@@ -3,10 +3,12 @@ program mesh
 use newtonmod
 implicit none
 real::smallalfa, dalfa, L, xinicio, xfin, factor
-integer::N, i, M, counter, j, param, poli, k, dx, decision, dimxnuevo, inicio, fin
+integer::N, i, M, counter, j, param, poli, k, dx, decision, dimxnuevo, inicio, fin, t
 character(len=50)::filepuntos
 real,allocatable::x(:), y(:), y2(:) , xbig(:), ybig(:), zbig(:), d(:), c(:), alfa(:), b(:)
 real,allocatable:: xnuevo(:), ynuevo(:), y2nuevo(:), xtotal(:), ytotal(:), y2total(:)
+real, allocatable:: z1(:), z2(:), z3(:), z4(:)
+character(len=20) :: nameprogr
 
 type vector
  real, allocatable, dimension(:)::xbig
@@ -158,17 +160,32 @@ end if
 global%xbig=xbig
 global%ybig=ybig
 global%zbig=zbig
+allocate (z1(N*M), z2(N*M), z3(N*M), z4(N*M))
+z1=0
+z2=0
+z3=0
+z4=0
 
 
-counter=0
+ write (nameprogr,*) 'pointlist.dat'
+ open(1,file=nameprogr) 
+
+write(1,*) N*M
+write(1,*) N
+write(1,*) M
+
+ t=0
 print*, 'the final result is:'
-print*, '_____x_________________y__________________z______________coordenate'
+print*, '_____coordenate____x_________________y________________z_________'
 do j=1,N
 do i=1,M
-counter=counter+1
-print*, global%xbig(counter), global%ybig(counter), global%zbig(counter), counter
+ t=t+1
+print*, t, global%xbig(t), global%ybig(t), global%zbig(t)
+write(1,*) t, global%xbig(t), global%ybig(t), global%zbig(t), z1(t), z2(t), z3(t), z4(t)
 end do 
 end do
+
+ close(1)
 
 
 
