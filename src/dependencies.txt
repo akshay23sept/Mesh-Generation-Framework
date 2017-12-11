@@ -1,0 +1,8 @@
+#Put your code's dependencies here
+#Later it would be setup to auto-install those for building the project on a clean machine
+
+sudo apt-get install gfortran
+sudo apt-get install python-numpy
+sudo apt-get install python-h5py
+pip install FoBiS.py
+
