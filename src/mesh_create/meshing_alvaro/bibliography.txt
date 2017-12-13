@@ -1,0 +1,5 @@
+http://water.engr.psu.edu/hill/research/glba/software/battri_guide.pdf
+http://www.pdas.com/refs/tnd6766.pdf
+https://people.eecs.berkeley.edu/~jrs/meshpapers/BernPlassmann.pdf
+https://en.wikipedia.org/wiki/Principles_of_grid_generation
+https://www.iitk.ac.in/tkic/workshop/FEM/ppt/Basics%20of%20Mesh%20Generation_SF%20Anwer.pdf

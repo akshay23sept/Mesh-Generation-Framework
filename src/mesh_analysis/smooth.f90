@@ -51,6 +51,6 @@ L(i*n+j) = i*hx
 L(i*n+j) = j*hy+c*i*hx/a
 enddo
 enddo
-
+!print*, n
 end subroutine grid
 end program smoothness
