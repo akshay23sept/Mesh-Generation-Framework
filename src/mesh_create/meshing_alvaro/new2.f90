@@ -2,6 +2,8 @@ module newtonmod
 
 contains 
 
+!Subroutine of Newton to be able to stablish more points in the local streching.
+!This local streching is made by a Chebyshev distribution always.
 subroutine newton(x, y, y2, N, inicio, fin, xinicio, xfin, xnuevo, ynuevo, y2nuevo, dimxnuevo)
 implicit none
 real::x(:), y(:), y2(:), xdist, dalfa, L, smallalfa, LL, xx, pol, factor
@@ -18,7 +20,6 @@ else
 b=y2
 end if
 d=b
-!print*, d  
  alfa(1)=b(1)
   counter=0
   do k=1, 1000
@@ -90,10 +91,9 @@ d=b
   xx=xinicio+LL*sin(smallalfa)
   end do
   end do
-
-  !print*, 'final subrutina'
   end subroutine newton
 
+!Chebyshev distribution
 subroutine chevy(xbig, ybig, zbig, x, y, y2, M, N)
 implicit none
 real::x(:), y(:), y2(:) !, xbig, ybig, zbig
@@ -104,9 +104,9 @@ integer:: i, j, counter
 allocate(xbig(N*M),ybig(N*M),zbig(N*M))
 dalfa=(3.14159265)/real((M-1))
 counter=0
-do j=1, N  !al acabar poner que j va de 1 a N, va a ser el paso de una columna a otra
+do j=1, N  
 smallalfa=0.0
-L=y2(j)-y(j) !L es la longitud de cada intervalo vertical
+L=y2(j)-y(j) 
 do i=1,M
 counter=counter+1
 xbig(counter)=x(j)
@@ -117,7 +117,8 @@ end do
 end do
 end subroutine chevy
 
-subroutine arcsen(xbig, ybig, zbig, x, y, y2, M, N) !para la subrutina arcseno voy a usar el intervalo en x de -1 a 1. eso lo marca la variable smallx
+!The arcsen distribution uses the interval of x(-0.975, 0.975) to create the points.
+subroutine arcsen(xbig, ybig, zbig, x, y, y2, M, N) 
 implicit none
 real::x(:), y(:), y2(:)
 real, allocatable, intent(out):: xbig(:), ybig(:), zbig(:)
@@ -127,9 +128,9 @@ integer:: i, j, counter
 allocate(xbig(N*M),ybig(N*M),zbig(N*M))
 dx=1.95/real((M-1))
 counter=0
-do j=1, N  !al acabar poner que j va de 1 a N, va a ser el paso de una columna a otra
+do j=1, N 
 smallx=-0.975
-L=y2(j)-y(j) !L es la longitud de cada intervalo vertical
+L=y2(j)-y(j) 
 do i=1,M
 counter=counter+1
 xbig(counter)=x(j)
@@ -140,7 +141,8 @@ end do
 end do
 end subroutine arcsen
 
-subroutine tanhip(xbig, ybig, zbig, x, y, y2, M, N) !para la subrutina tanhip voy a usar el intervalo en x de -2 a 2. eso lo marca la variable smallx
+!The hyperbolic tangent distribution uses the interval of x(-2,2) to create the points.
+subroutine tanhip(xbig, ybig, zbig, x, y, y2, M, N) 
 implicit none
 real::x(:), y(:), y2(:)
 real, allocatable, intent(out):: xbig(:), ybig(:), zbig(:)
@@ -150,9 +152,9 @@ integer:: i, j, counter
 allocate(xbig(N*M),ybig(N*M),zbig(N*M))
 dx=4.0/real((M-1))
 counter=0
-do j=1, N  !al acabar poner que j va de 1 a N, va a ser el paso de una columna a otra
+do j=1, N  
 smallx=-2.0
-L=y2(j)-y(j) !L es la longitud de cada intervalo vertical
+L=y2(j)-y(j) 
 do i=1,M
 counter=counter+1
 xbig(counter)=x(j)
@@ -163,7 +165,28 @@ end do
 end do
 end subroutine tanhip
 
-
+subroutine linear(xbig, ybig, zbig, x, y, y2, M, N)
+implicit none
+real::x(:), y(:), y2(:)
+real, allocatable, intent(out):: xbig(:), ybig(:), zbig(:)
+integer, intent(in)::M, N
+real:: dx, L, smallx
+integer:: i, j, counter
+allocate(xbig(N*M),ybig(N*M),zbig(N*M))
+dx=1.0/real((M-1))
+counter=0
+do j=1, N  
+smallx=0.0
+L=y2(j)-y(j) 
+do i=1,M
+counter=counter+1
+xbig(counter)=x(j)
+ybig(counter)=y(j)+L*smallx
+zbig(counter)=1.0
+smallx=smallx+dx
+end do
+end do
+end subroutine linear
 
 
 

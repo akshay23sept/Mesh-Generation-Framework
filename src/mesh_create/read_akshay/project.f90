@@ -1,6 +1,6 @@
 program mesh
 
-!use newtonmod
+use newtonmod
 
 use read_file_module
 implicit none
@@ -12,6 +12,7 @@ real,allocatable:: xnuevo(:), ynuevo(:), y2nuevo(:), xtotal(:), ytotal(:), y2tot
 real, allocatable:: z1(:), z2(:), z3(:), z4(:)
 character(len=20) :: nameprogr
 
+!We define the array vector to introduce in it thr result of the mesh generating, before writing it in a file.
 type vector
  real, allocatable, dimension(:)::xbig
   real, allocatable, dimension(:)::ybig
@@ -24,14 +25,17 @@ read*, M
 
 !N es el numero de puntos en el eje x
 !M es el numero de puntos en el eje y
+
+!We call to the read_file subroutine to introduce in out variable the data given by the user in a file.
 call read_file(filepuntos,x,y,y2,N)
 
+!We print the read points in the screen
 print*, 'your x, y, and y2 coordenates are:'
 do i=1, N
 print*, x(i), y(i), y2(i)
 end do
 
-!local streching:
+!local streching: as the distribution of points in 'x' direction is given by the file of the user, we give him the oportunity of increasing the number of points in a range between two points that the user choose. 
 print*, 'do you want to do any local streching in a longitude interval? write 1 for yes or 2 for no'
 read*, decision
 if (decision==1) then
@@ -47,11 +51,12 @@ stop
 end if
 
 
-
-
+!To create a local streching, the user can increase the number of points in the selected interval by a factor proportional to the number of points that exist in that interval.
 if (decision==1) then
 print*, 'Introduce a factor to increase the number of points in this inteval, proportional to the amount of points of your curve'
 read*, factor
+
+!I round off the points that the user gives to the closest without losing part of the interval (the left next one of the first and the right nex one of the second)
 do j=1,2
 do i=1,N
 if (j==1) then
@@ -76,20 +81,22 @@ end do
 end do
 xinicio=x(inicio)
 xfin=x(fin)
-!I round off the points that the user gives to the closest without loosing part of the interval (the left next one of the first and the right nex one of the second)
 print*, 'inicio es', inicio, 'y fin es', fin, 'y factor es', factor
 dimxnuevo = int(factor*(fin-inicio-1))
 print*, 'dimxnuevo es', dimxnuevo
 
-!Newton
+!To obtain points in the interval selected, it is neccesary to aproximate the curves given by points with a Newton polynomial.
 !call newton(x, y, y2, N, inicio, fin, xinicio, xfin, xnuevo, ynuevo, y2nuevo, dimxnuevo)
 print*, 'el vector xnuevo es y su dimension', size(xnuevo)
 do i=1,dimxnuevo
 print*, xnuevo(i), ynuevo(i)
 end do
 
+!If the user wants to make a local streching, it is neccesary to redefine the dimension of the variables, as follows:
 allocate (xtotal(inicio-1+dimxnuevo+(N-fin+1)), ytotal(inicio-1+dimxnuevo+(N-fin+1)), y2total(inicio-1+dimxnuevo+(N-fin+1)))
 print*, 'la dimension de xtotal es', size(xtotal)
+
+!Now with the new points obtained with the Newton polynomial and the previous ones, we need to rebuild the vectors with the points as follow:
 counter=1
 do i=1,inicio-1
 xtotal(counter)=x(i)
@@ -109,20 +116,25 @@ ytotal(counter)=y(fin-1+i)
 y2total(counter)=y2(fin-1+i)
 counter=counter+1
 end do
+
+!We plot the new vectors of points.
 print*, 'the dimension of your new vector is', counter-1, 'and your new vector is:'
 print*, '_____x_________________y1________________y2______________coordenate'
 do i=1, counter-1
 print*, xtotal(i), ytotal(i), y2total(i), i
 end do
 
+!As the size of the vectors has changed, we also need to redefine the size of the array that we defined at the beginning.
 N=size(xtotal)
 deallocate(xbig, ybig, global%xbig, global%ybig, global%zbig)
 allocate(xbig(N*M), ybig(N*M), global%xbig(N*M), global%ybig(N*M), global%zbig(N*M))
 else
 end if
 
+
+!The next 30 lines are going to call to the subroutine that the user chooses, to generate the vertical mesh.  reading an integer number from the screen. The possible distribution of points are: Chebyshev distribution, arcsen distribution, hyperbolic tangent distribution or linear one.
 print*, 'for the global stretching (vertically),'
-print*, 'introduce the value 1 for a Chevyshchev distribution, 2 for an arcsen distribution, or 3 for a tanh distribution'
+print*, 'introduce the value 1 for a Chevyshchev distribution, 2 for an arcsen distribution,3 for a tanh distribution, or 4 for a linear distribution'
 read*, param
 if (param==1) then
  if (decision==1) then
@@ -142,21 +154,30 @@ if (decision==1) then
 else
 !call tanhip(xbig, ybig, zbig, x, y, y2, M, N)
 end if
+elseif (param==4) then
+if (decision==1) then
+!call linear(xbig, ybig, zbig, xtotal, ytotal, y2total, M, N)
+else
+!call linear(xbig, ybig, zbig, x, y, y2, M, N)
+end if
 else
 print*, 'wrong number, come on, it is not so difficult'
 stop
 end if
 
+!We introduce the results in the array:
 global%xbig=xbig
 global%ybig=ybig
 global%zbig=zbig
+
+!We define 4 variables, full of '0', that will be necessary in the data analysis.
 allocate (z1(N*M), z2(N*M), z3(N*M), z4(N*M))
 z1=0
 z2=0
 z3=0
 z4=0
 
-
+!This is the file where we write the results of the mesh creating.
  write (nameprogr,*) 'pointlist.dat'
  open(1,file=nameprogr) 
 
@@ -164,6 +185,7 @@ write(1,*) N*M
 write(1,*) N
 write(1,*) M
 
+!We print the result in the screen, and we write it in a file so that we can countinue the data treatment with it.
  t=0
 print*, 'the final result is:'
 print*, '_____coordenate____x_________________y________________z_________'
