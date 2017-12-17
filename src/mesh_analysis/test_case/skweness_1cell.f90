@@ -13,13 +13,13 @@ program skewness_1cell
   character(len=20) :: datafile                            ! Data file for my test
   character(len=20) :: myFileName1                         ! in order to include Drashti's mapping
   integer(ik) :: node_num, element_xtot, element_ytot      ! in order to include Drashti's mapping
-  real(8), allocatable :: map1(:,:)                        ! Vector containing all the cells (in order to simplify the code == no breaking column)
+  type(cell), allocatable :: map1(:)                       ! Vector containing all the cells (in order to simplify the code == no breaking column)
   integer :: i,n
 !!!!!!!!!!!!!!!!!!! Define a type point !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  type Point
-    real(8) :: x,y,z
-  end type Point
+ ! type Point
+ !   real(8) :: x,y,z
+ ! end type Point
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -33,6 +33,8 @@ program skewness_1cell
   write(*,*)'open data file'
   read(99, *) node_num,element_xtot,element_ytot
   
+  allocate(map1((element_xtot-1)*(element_ytot-1)))
+
   map1 = map(node_num,element_xtot,element_ytot)  ! Now I have the vector containing all the cells 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
