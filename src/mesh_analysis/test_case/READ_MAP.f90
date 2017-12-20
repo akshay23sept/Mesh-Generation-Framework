@@ -18,46 +18,50 @@ contains
   character ( len = 80 ) title
   integer           :: i, j, myRow,myColumn,node_num,element_xtot,element_ytot
   character(len=30) :: myFileName1
-  real(8),allocatable ::n1(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
+  real(8),allocatable :: n1(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
   integer,allocatable :: element_node(:,:)
+  character(len=70) :: fmt
 
-
+!  fmt = '(9x,I3.3,3x,f8.2,7x,f8.2,7x,f8.2,7x,f8.2,7x,f8.2,7x,f8.2,7x,f8.2)'
   myFileName1='raw_mesh.dat'
-
-  open(99, file=myFileName1)
+! '(x,I3.3,x,I2.2,x,I1.1)'
+  close(99)
+  open(99, file=myFileName1, status='old')
   write(*,*)'open data file'
-  read(99, '(x,I3,x,I2,x,I1)') node_num, element_xtot, element_ytot
+  read(99, '(I4.4,x,I2.2,x,I1.1)') node_num, element_xtot, element_ytot
 
-  allocate(n1(node_num))
+!  allocate(n1(node_num))
   allocate(xyz(3,node_num))
-  allocate(x(node_num))
-  allocate(y(node_num))
+!  allocate(x(node_num))
+!  allocate(y(node_num))
   allocate(z(node_num))
   allocate(uvw(3,node_num))
   allocate(u(node_num))
   allocate(v(node_num))
   allocate(w(node_num))
   allocate(p(node_num))
-
+print*, node_num, element_xtot, element_ytot
 
   do i=1,node_num
-    read(99,*) x(i),y(i),z(i),n1(i),u(i),v(i),w(i),p(i)
+    read(99,*) n1(i),x(i),y(i),z(i),u(i),v(i),w(i),p(i)
   enddo
-        xyz(1,:) = x(:)
-        xyz(2,:) = y(:)
-        xyz(3,:) = z(:)
-        uvw(1,:) = u(:)
-        uvw(2,:) = v(:)
-        uvw(3,:) = w(:)
+!        xyz(1,:) = x(:)
+!        xyz(2,:) = y(:)
+!        xyz(3,:) = z(:)
+!        uvw(1,:) = u(:)
+!        uvw(2,:) = v(:)
+!        uvw(3,:) = w(:)
+
  end subroutine read_data
+
 !\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  FUNCTION FOR MAPPING CELLS OF ESSENTIAL NODES  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-function map(node_num,element_xtot,element_ytot) ! takes the total nodes, total nodes in X and Total nodes in Y
+function cells(node_num,element_xtot,element_ytot) ! takes the total nodes, total nodes in X and Total nodes in Y
 
    implicit none
    real(8),allocatable :: nodexy(:,:),n(:),x(:),y(:)
    integer::i,j,k,node_num,element_xtot,element_ytot,celltot
-   type(cell),dimension((element_xtot-1)*(element_ytot-1)) :: cells, map
+   type(cell),dimension((element_xtot-1)*(element_ytot-1)) :: cells
 
  celltot=(element_xtot-1)*(element_ytot-1) !The total number of cells in the mesh
 
@@ -68,7 +72,7 @@ function map(node_num,element_xtot,element_ytot) ! takes the total nodes, total 
   allocate(y(node_num))
 !  allocate(map(celltot,4))
 
-call read_data(n,x,y) ! Using the read Module for obtaining the OUTPUT data
+call read_data(n, x, y) ! Using the read Module for obtaining the OUTPUT data
 
 !\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  INFORMATION OF X,Y IN EACH NODE  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -87,33 +91,32 @@ do j=1,element_ytot-1
 ! cell(j+(i-1)*(element_ytot-1),3)=n(i*element_ytot+(j+1))
 ! cell(j+(i-1)*(element_ytot-1),4)=n(i*element_ytot+j)
 
-    cells(j+(i-1)*(element_ytot-1))%indx = j+(i-1)*(element_ytot-1)
+  cells(j+(i-1)*(element_ytot-1))%indx = j+(i-1)*(element_ytot-1)
 
-  cells(j+(i-1)*(element_ytot-1))%P1%x = x(i)
-  cells(j+(i-1)*(element_ytot-1))%P1%y = y(j+1)
-  cells(j+(i-1)*(element_ytot-1))%P1%z = 0
+  cells(j+(i-1)*(element_ytot-1))%P1%x = x(j+i*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P1%y = y(j+i*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P1%z = 1
 
-  cells(j+(i-1)*(element_ytot-1))%P2%x = x(i+1)
-  cells(j+(i-1)*(element_ytot-1))%P2%y = y(j+1)
-  cells(j+(i-1)*(element_ytot-1))%P2%z = 0
+  cells(j+(i-1)*(element_ytot-1))%P2%x = x(j+1+i*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P2%y = y(j+1+i*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P2%z = 1
 
-  cells(j+(i-1)*(element_ytot-1))%P3%x = x(i)
-  cells(j+(i-1)*(element_ytot-1))%P3%y = y(j)
-  cells(j+(i-1)*(element_ytot-1))%P3%z = 0
+  cells(j+(i-1)*(element_ytot-1))%P3%x = x(j+(i-1)*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P3%y = y(j+(i-1)*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P3%z = 1
 
-  cells(j+(i-1)*(element_ytot-1))%P4%x = x(i+1)
-  cells(j+(i-1)*(element_ytot-1))%P4%y = y(j)
-  cells(j+(i-1)*(element_ytot-1))%P4%z = 0
+  cells(j+(i-1)*(element_ytot-1))%P4%x = x(j+1+(i-1)*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P4%y = y(j+1+(i-1)*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P4%z = 1
 
 end do
 end do
 
-!map(:,:)=cell(:,:) !output of the function - mapped cells,nodes
-print*,x
-print*,y
-print*,n
-print*,cells
-end function map
+!print*,x
+!print*,y
+!print*,n
+!print*,cells
+end function cells
 
 
 end module READ_MAP
