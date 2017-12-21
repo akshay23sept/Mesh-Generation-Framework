@@ -57,7 +57,7 @@ program skewness_1cell
     P_2 = map1(i)%P2
     P_3 = map1(i)%P3
     P_4 = map1(i)%P4
-print*, 'cell', i
+print*, 'cell', map1(i)%indx
 print*, P_1
 print*, P_2
 print*, P_3
