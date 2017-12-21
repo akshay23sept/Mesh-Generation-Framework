@@ -6,3 +6,6 @@ sudo apt-get install python-numpy
 sudo apt-get install python-h5py
 pip install FoBiS.py
 
+#Unpack and install HDF5 library
+bash ./mesh_formats/hdf5_io/install_hdf5.sh
+ 
