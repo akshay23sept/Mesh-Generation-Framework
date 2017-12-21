@@ -1,5 +1,6 @@
 program hdf5write
 use HDF5
+use precision
 IMPLICIT NONE
 
 CHARACTER(LEN=11), PARAMETER :: filename = "mesh.h5" ! File name of the hdf5 file generated
@@ -15,16 +16,16 @@ INTEGER(HSIZE_T), DIMENSION(2) :: dims_1 ! Dataset dimensions for the size of ar
 INTEGER(HSIZE_T), DIMENSION(2) :: dims_2 ! Dataset dimensions
 INTEGER(HSIZE_T), DIMENSION(1) :: dims_3 ! Dataset dimensions
 INTEGER(HSIZE_T), DIMENSION(1) :: dims_4 ! Dataset dimensions
-INTEGER     ::   rank_1, rank_2, rank_3, rank_4  ! Dataset rank that tells the dimension of the array
+INTEGER(ik) ::   rank_1, rank_2, rank_3, rank_4  ! Dataset rank that tells the dimension of the array
 
-INTEGER     ::   error ! Error flag to initilize and to check if any error is generated while compiling file
+INTEGER(ik) ::   error ! Error flag to initilize and to check if any error is generated while compiling file
 
-INTEGER :: i, n
+INTEGER(ik) :: i, n
 
-REAL, allocatable :: cord(:,:), vel(:,:), pre(:) ! defining the arrays of the data that needs to saved
-INTEGER, allocatable :: node(:)
+REAL(rk), allocatable :: cord(:,:), vel(:,:), pre(:) ! defining the arrays of the data that needs to saved
+INTEGER(ik), allocatable :: node(:)
 write(*,*)'opening the data file'
-open(1, file="raw_data.dat", status='old', action='read')
+open(1, file="../../src/mesh_create/meshing_alvaro/puntosmalla.dat", status='old', action='read')
   write(*,*)'reading the size of the array that needs to be created'
   read(1, *) n
 
