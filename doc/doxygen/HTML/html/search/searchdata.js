@@ -1,27 +1,21 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefghiklmnprstuvw",
-  1: "_abcdefghimpstv",
-  2: "h",
-  3: "_abcdfgiklmnprstuvw",
-  4: "dmrt"
+  0: "cdmprtv",
+  1: "cmpv",
+  2: "dmrt"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "namespaces",
-  3: "functions",
-  4: "pages"
+  2: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Classes",
-  2: "Namespaces",
-  3: "Functions",
-  4: "Pages"
+  2: "Pages"
 };
 
