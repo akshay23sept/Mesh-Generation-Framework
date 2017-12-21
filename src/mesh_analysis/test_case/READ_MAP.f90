@@ -44,6 +44,7 @@ print*, node_num, element_xtot, element_ytot
 
   do i=1,node_num
     read(99,*) n1(i),x(i),y(i),z(i),u(i),v(i),w(i),p(i)
+    print*, x(i),y(i),z(i)
   enddo
 !        xyz(1,:) = x(:)
 !        xyz(2,:) = y(:)
@@ -93,20 +94,20 @@ do j=1,element_ytot-1
 
   cells(j+(i-1)*(element_ytot-1))%indx = j+(i-1)*(element_ytot-1)
 
-  cells(j+(i-1)*(element_ytot-1))%P1%x = x(j+i*(element_ytot-1))
-  cells(j+(i-1)*(element_ytot-1))%P1%y = y(j+i*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P1%x = x(j+1+(i-1)*(element_ytot))
+  cells(j+(i-1)*(element_ytot-1))%P1%y = y(j+1+(i-1)*(element_ytot))
   cells(j+(i-1)*(element_ytot-1))%P1%z = 1
 
-  cells(j+(i-1)*(element_ytot-1))%P2%x = x(j+1+i*(element_ytot-1))
-  cells(j+(i-1)*(element_ytot-1))%P2%y = y(j+1+i*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P2%x = x(j+1+i*(element_ytot))
+  cells(j+(i-1)*(element_ytot-1))%P2%y = y(j+1+i*(element_ytot))
   cells(j+(i-1)*(element_ytot-1))%P2%z = 1
 
-  cells(j+(i-1)*(element_ytot-1))%P3%x = x(j+(i-1)*(element_ytot-1))
-  cells(j+(i-1)*(element_ytot-1))%P3%y = y(j+(i-1)*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P3%x = x(j+(i-1)*(element_ytot))
+  cells(j+(i-1)*(element_ytot-1))%P3%y = y(j+(i-1)*(element_ytot))
   cells(j+(i-1)*(element_ytot-1))%P3%z = 1
 
-  cells(j+(i-1)*(element_ytot-1))%P4%x = x(j+1+(i-1)*(element_ytot-1))
-  cells(j+(i-1)*(element_ytot-1))%P4%y = y(j+1+(i-1)*(element_ytot-1))
+  cells(j+(i-1)*(element_ytot-1))%P4%x = x(j+(i)*(element_ytot))
+  cells(j+(i-1)*(element_ytot-1))%P4%y = y(j+(i)*(element_ytot))
   cells(j+(i-1)*(element_ytot-1))%P4%z = 1
 
 end do
