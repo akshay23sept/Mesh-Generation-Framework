@@ -16,7 +16,7 @@ program main
   write ( *, '(a)' ) 'VTK_IO_PRB'
   write ( *, '(a)' ) '  Normal end of execution.'
   write ( *, '(a)' ) ' '
-  call timestamp ( )
+  call timestamp ( ) !timestamp to mention the time of execution
 
   stop
 end
@@ -24,64 +24,69 @@ subroutine test01 ( )
 
   implicit none
 
-  integer ( kind = 4 ), parameter :: element_num = 6
-  integer ( kind = 4 ), parameter :: element_order = 8
-  integer ( kind = 4 ), parameter :: node_num = 24
-
-  integer ( kind = 4 ) :: element_node(element_order,element_num) = reshape ( &
-    (/ &
-      1,  2,  5,  6, 13, 14, 17, 18, &
-      2,  3,  6,  7, 14, 15, 18, 19, &
-      3,  4,  7,  8, 15, 16, 19, 20, &
-      5,  6,  9, 10, 17, 18, 21, 22, &
-      6,  7, 10, 11, 18, 19, 22, 23, &
-      7,  8, 11, 12, 19, 20, 23, 24  &
-    /), (/ element_order, element_num /) )
-  integer ( kind = 4 ) i
-  integer ( kind = 4 ) j
-  integer ( kind = 4 ) k
-  integer ( kind = 4 ) node
   character ( len = 80 ) output_filename
-  integer ( kind = 4 ) output_unit
-  real ( kind = 8 ) p(node_num)
   character ( len = 80 ) title
-  real ( kind = 8 ) uvw(3,node_num)
-  real ( kind = 8 ) x
-  real ( kind = 8 ) xyz(3,node_num)
-  real ( kind = 8 ) y
-  real ( kind = 8 ) z
+
+  real              :: myLine
+  integer           :: i, j, myRow,myColumn,node_num,element_num,element_order,output_unit
+  character(len=30) :: myFileName1
+  real(8),allocatable ::n(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
+  integer,allocatable :: element_node(:,:)
 
   write ( *, '(a)' ) ' '
   write ( *, '(a)' ) 'TEST01'
   write ( *, '(a)' ) '  VTK_PUVW_WRITE writes 3d fluid data, pressure and '
   write ( *, '(a)' ) '  velocity, to a VTK file.'
 
+  myFileName1='raw_mesh.dat'
+
+  open(99, file=myFileName1)
+  write(*,*)'open data file'
+  read(99, *) node_num,element_num,element_order
+
+  allocate(n(node_num))
+  allocate(xyz(3,node_num))
+  allocate(x(node_num))
+  allocate(y(node_num))
+  allocate(z(node_num))
+  allocate(uvw(3,node_num))
+  allocate(u(node_num))
+  allocate(v(node_num))
+  allocate(w(node_num))
+  allocate(p(node_num))
+  allocate(element_node(element_num,element_order))
+
+  do i=1,node_num
+    read(99,*) x(i),y(i),z(i),n(i),u(i),v(i),w(i),p(i)
+  enddo
+
+print*,element_num
+print*,element_order
+
+  element_node=reshape(n(:),(/element_num,element_order/))
+
+  close(99)
+
+
+
   output_filename = 'puvw_data.vtk'
   title = 'Sample data for VTK_PUVW_WRITE.'
 
-  node = 0
-  do k = 1, 2
-    z = real ( k - 1, kind = 8 )
-    do j = 1, 3
-      y = real ( j - 1, kind = 8 )
-      do i = 1, 4
-        x = real ( i - 1, kind = 8 )
-        node = node + 1
-        xyz(1:3,node) = (/ x, y, z /)
-        p(node_num) = 10.0D+00 * x
-        uvw(1,node_num) = 2.0D+00 * x
-        uvw(2,node_num) = 3.0D+00 * y
-        uvw(3,node_num) = 4.0D+00 * z
-      end do
-    end do
-  end do
 
-  call get_unit ( output_unit )
+        xyz(1,:) = x(:)
+        xyz(2,:) = y(:)
+        xyz(3,:) = z(:)
+        uvw(1,:) = u(:)
+        uvw(2,:) = v(:)
+        uvw(3,:) = w(:)
+
+
+  call get_unit ( output_unit )!to avoid 5,6,and9 as the unit number //output_unit is independent number for file creation
 
   open ( unit = output_unit, file = output_filename, status = 'replace' )
 
   call vtk_puvw_write ( output_unit, title, node_num, element_num, &
-    element_order, xyz, element_node, p, uvw )
+    element_order, xyz, element_node, p, uvw)! 
 
   close (  unit = output_unit )
 
@@ -93,7 +98,7 @@ end
 
 
 subroutine vtk_puvw_write ( output_unit, title, node_num, element_num, &
-  element_order, xyz, element_node, p, uvw )
+  element_order, xyz, element_node, p, uvw)! 
 
  implicit none
 
@@ -159,7 +164,7 @@ subroutine vtk_puvw_write ( output_unit, title, node_num, element_num, &
   write ( output_unit, '(a)' ) 'VECTORS velocity double'
   do node = 1, node_num
     write ( output_unit, '(3(2x,g14.6))' ) uvw(1:3,node)
-  end do
+end do
 
   return
 end
@@ -337,7 +342,3 @@ subroutine timestamp ( )
 
   return
 end
-
-
-
-

@@ -1,3 +1,26 @@
+program dat_read
+use dat_write
+  implicit none
+
+  call timestamp ( )
+  write ( *, '(a)' ) ' '
+  write ( *, '(a)' ) 'dat_IO_PRB'
+  write ( *, '(a)' ) '  FORTRAN90 version'
+  write ( *, '(a)' ) '  Test the VTK_IO library.'
+	
+  call test01 ( )
+!
+!  Terminate.
+!
+  write ( *, '(a)' ) ' '
+  write ( *, '(a)' ) 'dat_IO_PRB'
+  write ( *, '(a)' ) '  Normal end of execution.'
+  write ( *, '(a)' ) ' '
+  call timestamp ( ) !timestamp to mention the time of execution
+
+  stop
+
+contains
 subroutine test01 ( )
 
   implicit none
@@ -13,8 +36,8 @@ subroutine test01 ( )
 
   write ( *, '(a)' ) ' '
   write ( *, '(a)' ) 'TEST01'
-  write ( *, '(a)' ) '  VTK_PUVW_WRITE writes 3d fluid data, pressure and '
-  write ( *, '(a)' ) '  velocity, to a VTK file.'
+  write ( *, '(a)' ) '  .dat_WRITE writes 3d fluid data, pressure and '
+  write ( *, '(a)' ) '  velocity, to a .dat file.'
 
   myFileName1='raw_mesh.dat'
 
@@ -48,7 +71,7 @@ print*,element_order
 
 
   output_filename = 'puvw_data.vtk'
-  title = 'Sample data for VTK_PUVW_WRITE.'
+  title = 'data output for .dat_WRITE'
 
 
         xyz(1,:) = x(:)
@@ -63,14 +86,14 @@ print*,element_order
 
   open ( unit = output_unit, file = output_filename, status = 'replace' )
 
-  call vtk_puvw_write ( output_unit, title, node_num, element_num, &
+  call dat_data_write ( output_unit, title, node_num, element_num, &
     element_order, xyz, element_node, p, uvw)! 
 
   close (  unit = output_unit )
 
   write ( *, '(a)' ) ' '
-  write ( *, '(a)' ) '  VTK_PUVW_WRITE created the file.'
+  write ( *, '(a)' ) '  .dat_WRITE created the file.'
 
   return
 end
-
+end
