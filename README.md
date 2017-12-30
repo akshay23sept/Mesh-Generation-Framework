@@ -15,6 +15,7 @@ Mesh Generation Framework as a part of Fortran Project by IMP Turbulence 2019 Ba
   and build type (Debug, Release, ...).
   
   - To compile with compiler Release flags only  
+  `FC=gfortran cmake -D PLATFROM_NAME=lmlm6-75 CMAKE_BUILD_TYPE=Debug  ..`
   `FC=mpif90.openmpi cmake -D PLATFROM_NAME=lmlm6-75 CMAKE_BUILD_TYPE=Debug  ..`
 
   - To compile with compiler Debug flags only  
@@ -36,6 +37,12 @@ Mesh Generation Framework as a part of Fortran Project by IMP Turbulence 2019 Ba
 
 - Clean  
 `make distclean`
+
+### How to use ### 
+
+- Add shared libraries in your current terminal
+  `LIBSloc="/home/solak/Workdir/tempdir/Workdir/fortan_project/myLib/hdf5"`
+  `export LD_LIBRARY_PATH="${LIBSloc}/lib"`
 
 ### Contributing ###
 
