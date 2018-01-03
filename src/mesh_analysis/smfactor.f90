@@ -44,7 +44,7 @@ max_smooth = 1.2
 
 do i=1, node_num-1
 
-if ((P_3%x-P_2%x) >= (1.2*(P_2%x-P_1%x))) then 
+if ((P_3%x-P_2%x) >= (1.2*(P_2%x-P_1%x))) then 		!formulation which predict smoothness of a given mesh
       smthf = ((P_3%y-P_2%y)/(P_2%x-P_1%x))
 
 else if ((P_4%x-P_3%x) >= (1.2*(P_3%x-P_2%x))) then
