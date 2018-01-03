@@ -1,5 +1,6 @@
 program dat_read
 use dat_write
+use precision
   implicit none
 
   call timestamp ( )
@@ -28,11 +29,11 @@ subroutine test01 ( )
   character ( len = 80 ) output_filename
   character ( len = 80 ) title
 
-  real              :: myLine
-  integer           :: i, j, myRow,myColumn,node_num,element_num,element_order,output_unit
+  real (rk)             :: myLine
+  integer  (ik)         :: i, j, myRow,myColumn,node_num,element_num,element_order,output_unit
   character(len=30) :: myFileName1
-  real(8),allocatable ::n(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
-  integer,allocatable :: element_node(:,:)
+  real(rk),allocatable ::n(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
+  integer(ik),allocatable :: element_node(:,:)
 
   write ( *, '(a)' ) ' '
   write ( *, '(a)' ) 'TEST01'
