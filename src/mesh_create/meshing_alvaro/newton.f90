@@ -1,8 +1,25 @@
+!---------------------------------------------------------------------
+! Mesh Generation Framework                    
+!---------------------------------------------------------------------
+!
+!> MODULE: newtonmod
+!
+!> @author
+!> Alvaro
+!
+! DESCRIPTION: 
+!> This module helps to be able to establish more points in the local streching.
+!
+!---------------------------------------------------------------------
+!
+
+
+
 module newtonmod
 
 contains 
 
-!Subroutine of Newton to be able to stablish more points in the local streching.
+!Subroutine of Newton to be able to establish more points in the local streching.
 !This local streching is made by a Chebyshev distribution always.
 subroutine newton(x, y, y2, N, inicio, fin, xinicio, xfin, xnuevo, ynuevo, y2nuevo, dimxnuevo)
 implicit none

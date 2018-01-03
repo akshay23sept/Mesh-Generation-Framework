@@ -13,43 +13,127 @@
 !---------------------------------------------------------------------
 !
 
-module vtk_write
-!>module initialisation
-use precision 
+program main
 
-contains
-!>to define that the module contains the following sub-programs
+  implicit none
+
+  call timestamp ( )
+  write ( *, '(a)' ) ' '
+  write ( *, '(a)' ) 'VTK_IO_PRB'
+  write ( *, '(a)' ) '  FORTRAN90 version'
+  write ( *, '(a)' ) '  Test the VTK_IO library.'
+
+  call test01 ( )
+!
+!  Terminate.
+!
+  write ( *, '(a)' ) ' '
+  write ( *, '(a)' ) 'VTK_IO_PRB'
+  write ( *, '(a)' ) '  Normal end of execution.'
+  write ( *, '(a)' ) ' '
+  call timestamp ( ) !timestamp to mention the time of execution
+
+  stop
+end
+subroutine test01 ( )
+
+  implicit none
+
+  character ( len = 80 ) output_filename
+  character ( len = 80 ) title
+
+  real              :: myLine
+  integer           :: i, j, myRow,myColumn,node_num,element_num,element_order,output_unit
+  character(len=30) :: myFileName1
+  real(8),allocatable ::n(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
+  integer,allocatable :: element_node(:,:)
+
+  write ( *, '(a)' ) ' '
+  write ( *, '(a)' ) 'TEST01'
+  write ( *, '(a)' ) '  VTK_PUVW_WRITE writes 3d fluid data, pressure and '
+  write ( *, '(a)' ) '  velocity, to a VTK file.'
+
+  myFileName1='raw_mesh.dat'
+
+  open(99, file=myFileName1)
+  write(*,*)'open data file'
+  read(99, *) node_num,element_num,element_order
+
+  allocate(n(node_num))
+  allocate(xyz(3,node_num))
+  allocate(x(node_num))
+  allocate(y(node_num))
+  allocate(z(node_num))
+  allocate(uvw(3,node_num))
+  allocate(u(node_num))
+  allocate(v(node_num))
+  allocate(w(node_num))
+  allocate(p(node_num))
+  allocate(element_node(element_num,element_order))
+
+  do i=1,node_num
+    read(99,*) x(i),y(i),z(i),n(i),u(i),v(i),w(i),p(i)
+  enddo
+
+print*,element_num
+print*,element_order
+
+  element_node=reshape(n(:),(/element_num,element_order/))
+
+  close(99)
+
+
+
+  output_filename = 'puvw_data.vtk'
+  title = 'Sample data for VTK_PUVW_WRITE.'
+
+
+        xyz(1,:) = x(:)
+        xyz(2,:) = y(:)
+        xyz(3,:) = z(:)
+        uvw(1,:) = u(:)
+        uvw(2,:) = v(:)
+        uvw(3,:) = w(:)
+
+
+  call get_unit ( output_unit )!to avoid 5,6,and9 as the unit number //output_unit is independent number for file creation
+
+  open ( unit = output_unit, file = output_filename, status = 'replace' )
+
+  call vtk_puvw_write ( output_unit, title, node_num, element_num, &
+    element_order, xyz, element_node, p, uvw)! 
+
+  close (  unit = output_unit )
+
+  write ( *, '(a)' ) ' '
+  write ( *, '(a)' ) '  VTK_PUVW_WRITE created the file.'
+
+  return
+end
+
 
 subroutine vtk_puvw_write ( output_unit, title, node_num, element_num, &
-  element_order, xyz, element_node, p, uvw)
-!>VTK_PUVW_WRITE writes pressure and velocity data to a VTK file.
+  element_order, xyz, element_node, p, uvw)! 
 
  implicit none
 
-  integer ( ik ):: element_num 
-  !>number of elements
-  integer ( ik ):: element_order 
-  !>order of the elements
-  integer ( ik ):: node_num
-  !>number of nodes
-  character ( len = 20 ):: cell_size_string
-  integer ( ik ) ::element
-  integer ( ik ):: element_node(element_order,element_num)
-  !>the nodes that make up each element
-  character ( len = 20 ):: element_num_string
-  integer ( ik ) ::node
-  character ( len = 20 ):: node_num_string
-  integer ( ik ) ::output_unit 
-  !>the unit number of each file
-  real ( rk ) :: p(node_num)
-  character ( len = 20 ):: s_node_num
-  character ( len = 20 ) ::s_element_num
-  character ( len = * ) ::title
-  !>title of the data
-  real ( rk ):: uvw(3,node_num) 
-  !>the velocity at each nodes
-  real ( rk ) :: xyz(3,node_num)
-  !>node coordinates
+  integer ( kind = 4 ) element_num
+  integer ( kind = 4 ) element_order
+  integer ( kind = 4 ) node_num
+
+  character ( len = 20 ) cell_size_string
+  integer ( kind = 4 ) element
+  integer ( kind = 4 ) element_node(element_order,element_num)
+  character ( len = 20 ) element_num_string
+  integer ( kind = 4 ) node
+  character ( len = 20 ) node_num_string
+  integer ( kind = 4 ) output_unit
+  real ( kind = 8 ) p(node_num)
+  character ( len = 20 ) s_node_num
+  character ( len = 20 ) s_element_num
+  character ( len = * ) title
+  real ( kind = 8 ) uvw(3,node_num)
+  real ( kind = 8 ) xyz(3,node_num)
 
   call i4_to_s_left ( node_num, node_num_string )
   call i4_to_s_left ( element_num, element_num_string )
@@ -99,16 +183,13 @@ end do
 
   return
 end
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 subroutine digit_to_ch ( digit, ch )
-!> DIGIT_TO_CH returns the character representation of a decimal digit.
 
   implicit none
 
   character ch
-!>character CH, the corresponding character.
-  integer ( ik ) digit
-!>DIGIT, the digit value between 0 and 9.
+  integer ( kind = 4 ) digit
 
   if ( 0 <= digit .and. digit <= 9 ) then
 
@@ -122,24 +203,14 @@ subroutine digit_to_ch ( digit, ch )
  
   return
 end
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine get_unit ( iunit )
-!>    A "free" FORTRAN unit number is an integer between 1 and 99 which
-!>    is not currently associated with an I/O device.  A free FORTRAN unit
-!>    number is needed in order to open a file with the OPEN command.
-!>    If IUNIT = 0, then no free FORTRAN unit could be found, although
-!>    all 99 units were checked (except for units 5, 6 and 9, which
-!>    are commonly reserved for console I/O).
-!>    Otherwise, IUNIT is an integer between 1 and 99, representing a
-!>    free FORTRAN unit.  Note that GET_UNIT assumes that units 5 and 6
-!>    are special, and will never return those values.
+
 
   implicit none
 
-  integer ( ik ) i
-  integer ( ik ) ios
-  integer ( ik ) iunit
-!> IUNIT, the free unit number.
+  integer ( kind = 4 ) i
+  integer ( kind = 4 ) ios
+  integer ( kind = 4 ) iunit
   logical lopen
 
   iunit = 0
@@ -163,21 +234,19 @@ subroutine get_unit ( iunit )
 
   return
 end
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 subroutine i4_to_s_left ( i4, s )
-!> I4_TO_S_LEFT converts an I4 to a left-justified string.
+
 
   implicit none
 
   character c
-  integer ( ik ) i
-  integer ( ik ) i4
-!>i4 is an integer to be converted.
-  integer ( ik ) idig
-  integer ( ik ) ihi
-  integer ( ik ) ilo
-  integer ( ik ) ipos
-  integer ( ik ) ival
+  integer ( kind = 4 ) i
+  integer ( kind = 4 ) i4
+  integer ( kind = 4 ) idig
+  integer ( kind = 4 ) ihi
+  integer ( kind = 4 ) ilo
+  integer ( kind = 4 ) ipos
+  integer ( kind = 4 ) ival
   character ( len = * ) s
 
   s = ' '
@@ -188,9 +257,9 @@ subroutine i4_to_s_left ( i4, s )
   if ( ihi <= 0 ) then
     return
   end if
-!>Make a copy of the integer.
+
   ival = i4
-!>Handle the negative sign.
+
   if ( ival < 0 ) then
 
     if ( ihi <= 1 ) then
@@ -203,9 +272,9 @@ subroutine i4_to_s_left ( i4, s )
     ilo = 2
 
   end if
-!>The absolute value of the integer goes into S(ILO:IHI).
+
   ipos = ihi
-!>Find the last digit of IVAL, strip it off, and stick it into the string.
+
   do
 
     idig = mod ( ival, 10 )
@@ -228,30 +297,29 @@ subroutine i4_to_s_left ( i4, s )
     end if
 
   end do
-!>Shift the string to the left.
+
   s(ilo:ilo+ihi-ipos-1) = s(ipos+1:ihi)
   s(ilo+ihi-ipos:ihi) = ' '
  
   return
 end
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine timestamp ( )
-!> TIMESTAMP prints the current YMDHMS date as a time stamp
+
   implicit none
 
   character ( len = 8 ) ampm
-  integer ( ik ) d
-  integer ( ik ) h
-  integer ( ik ) m
-  integer ( ik ) mm
+  integer ( kind = 4 ) d
+  integer ( kind = 4 ) h
+  integer ( kind = 4 ) m
+  integer ( kind = 4 ) mm
   character ( len = 9 ), parameter, dimension(12) :: month = (/ &
     'January  ', 'February ', 'March    ', 'April    ', &
     'May      ', 'June     ', 'July     ', 'August   ', &
     'September', 'October  ', 'November ', 'December ' /)
-  integer ( ik ) n
-  integer ( ik ) s
-  integer ( ik ) values(8)
-  integer ( ik ) y
+  integer ( kind = 4 ) n
+  integer ( kind = 4 ) s
+  integer ( kind = 4 ) values(8)
+  integer ( kind = 4 ) y
 
   call date_and_time ( values = values )
 
@@ -289,4 +357,3 @@ subroutine timestamp ( )
 
   return
 end
-end module
