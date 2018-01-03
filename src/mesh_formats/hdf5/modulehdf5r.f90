@@ -1,5 +1,17 @@
-! this module is used as as the the module for running requirs a different command to compile the program
-
+!---------------------------------------------------------------------
+! Mesh Generation Framework                    
+!---------------------------------------------------------------------
+!
+!> MODULE: hdfwrite
+!
+!> @author
+!> Mohan and Aakash
+!
+! DESCRIPTION: 
+!> This module is used as as the the module for running requires a different command to compile the program
+!
+!---------------------------------------------------------------------
+!
 module hdfwrite
 IMPLICIT NONE
 contains
