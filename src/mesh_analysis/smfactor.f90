@@ -8,7 +8,7 @@
 !> Roy Prosun
 !
 ! DESCRIPTION: 
-!> Reckon Smoothness of a given mesh
+!>  To Reckon the Smoothness of a given mesh
 !
 !---------------------------------------------------------------------
 !
