@@ -11,6 +11,13 @@
 SET(PREC prec)
 ADD_LIBRARY(${PREC} STATIC precision.f90 )
 
+
+# class hdffile
+SET(HDFFILE hdffile)
+ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/hdf5write.f90)
+target_link_libraries(${HDFFILE} ${PREC} ${HDF5lib})
+
+
 # class io
 #SET(IO io)
 #ADD_LIBRARY(${IO} STATIC class_io/class_io.f90) 
@@ -28,6 +35,12 @@ ADD_LIBRARY(${PREC} STATIC precision.f90 )
 # -------------------------------------------------------------------------------------------------------------------------
 # Executables
 # -------------------------------------------------------------------------------------------------------------------------
+
+SET(HDFEXE hdfexe)
+ADD_EXECUTABLE(${HDFEXE} mesh_formats/hdf5/hdftest.f90)
+target_link_libraries(${HDFEXE} ${HDFFILE})
+
+
 
 # navier3d (Example only)
 #SET(TESTNAV testnav)

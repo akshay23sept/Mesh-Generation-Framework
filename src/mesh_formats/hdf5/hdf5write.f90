@@ -11,15 +11,20 @@
 !> This program creates mesh in HDF5 format 
 !
 !---------------------------------------------------------------------
-!
-program hdf5write
+
+module hdf5write
 use HDF5
+!> using the HDF5 library for creating the file
 use precision
 IMPLICIT NONE
-
-CHARACTER(LEN=11), PARAMETER :: filename = "mesh.h5" !> File name of the hdf5 file generated
-CHARACTER(LEN=11), PARAMETER :: cordf = "coordinates" , velf = "velocity", pref = "pressure", nodef = "nodes"    !> Dataset name in wich the data will be saved 
-
+contains
+subrountine hdfwrite()
+!> creating subroutine to generate hdf file
+IMPLICIT NONE
+CHARACTER(LEN=11), PARAMETER :: filename = "mesh.h5" 
+!> File name of the hdf5 file generated
+CHARACTER(LEN=11), PARAMETER :: cordf = "coordinates" , velf = "velocity", pref = "pressure", nodef = "nodes"    
+!> Dataset name in which the data will be saved 
 
 INTEGER(HID_T) :: file_1       
 !> File identifier for the file that needs to be generated
@@ -49,29 +54,35 @@ REAL(rk), allocatable :: cord(:,:), vel(:,:), pre(:)
 !> defining the arrays of the data that needs to saved
 INTEGER(ik), allocatable :: node(:)
 write(*,*)'opening the data file'
-open(1, file="../../mesh_create/meshing_alvaro/puntosmalla.dat", status='old', action='read')
+open(1, file="../../mesh_create/meshing_alvaro/puntosmalla.dat", status='old', action='read') 
+!> reading the size of the data points form the file generated during mesg generation
   write(*,*)'reading the size of the array that needs to be created'
   read(1, *) n
 
-allocate (cord(3,n))
+allocate (cord(3,n)) 
+!> allocating the size of the data sets
 allocate (vel(3,n))
 allocate (pre(n))
 allocate (node(n))
-rank_1 = 2
+rank_1 = 2 
+!> 2 dimension array
 rank_2 = 2
-rank_3 = 1
+rank_3 = 1 
+!> 1 dimension array
 rank_4 = 1
 
-dims_1 = (/3,n/)
+dims_1 = (/3,n/) 
+!> specifing the the information of the size of the data sets 
 dims_2 = (/3,n/)
 dims_3 = n
 dims_4 = n
 do i = 1, n
- read(1,*) cord(1,i), cord(2,i), cord(3,i)!> node(i) !>, vel(1,i), vel(2,i), vel(3,i), pre(i) 
+ read(1,*) cord(1,i), cord(2,i), cord(3,i)
+ !> node(i) !>, vel(1,i), vel(2,i), vel(3,i), pre(i) 
  !> reading data form the data file and assigning the values
  vel(1,i) = 0
  vel(2,i) = 0 
- !> allocating 0 for the data sets which can be modified for futue use
+ !> allocating 0 for the data sets which can be modified for future use
  vel(3,i) = 0
  pre(i)  = 0
  node(i) = 0
@@ -141,6 +152,7 @@ CALL h5fclose_f(file_1, error)
 
 CALL h5close_f(error) 
 !> ending the fortran interface 
-
-end program hdf5write 
-!> end of program
+end subroutine hdfwrite
+!> end of subroution
+end module hdf5write 
+!> end of module
