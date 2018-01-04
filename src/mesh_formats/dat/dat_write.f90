@@ -60,7 +60,6 @@ subroutine dat_data_write ( output_unit, title, node_num, element_num, &
 
  write(99,*)'# dat DataFile Version 0.0'  
  write (99,*) title
- write (99,*) 'ASCII'
  write (99,*) 'DATASET UNSTRUCTURED_GRID'
  write(99,*)'node','x','y','z','u','v','w', 'velocity data','pressure'
  do node = 1, node_num
