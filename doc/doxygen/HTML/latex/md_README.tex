@@ -1,4 +1,4 @@
-Mesh Generation Framework as a part of Fortran Project by I\+MP Turbulence 2019 Batch
+Mesh Generation Framework as a part of Fortran Project by I\-M\-P Turbulence 2019 Batch
 
 {\bfseries Mesh with a special streching on wall normal direction}
 
@@ -8,20 +8,27 @@ Mesh Generation Framework as a part of Fortran Project by I\+MP Turbulence 2019 
 
 
 \begin{DoxyItemize}
-\item Go to build directory \+: cd build rm -\/f C\+Make\+Cache.\+txt
+\item Go to build directory \-: cd build rm -\/f C\-Make\-Cache.\-txt
 \item Create Makefile with one of these command choosing compiler (gfortran, ifort, ...) and build type (Debug, Release, ...).
 \begin{DoxyItemize}
-\item To compile with compiler Release flags only {\ttfamily FC=mpif90.\+openmpi cmake -\/D P\+L\+A\+T\+F\+R\+O\+M\+\_\+\+N\+A\+ME=lmlm6-\/75 C\+M\+A\+K\+E\+\_\+\+B\+U\+I\+L\+D\+\_\+\+T\+Y\+PE=Debug ..}
-\item To compile with compiler Debug flags only {\ttfamily FC=mpif90 cmake -\/D C\+M\+A\+K\+E\+\_\+\+B\+U\+I\+L\+D\+\_\+\+T\+Y\+PE=Debug -\/D P\+L\+A\+T\+F\+R\+O\+M\+\_\+\+N\+A\+ME=lmlm6-\/75 -\/\+D\+D\+E\+F\+I\+N\+E\+\_\+\+D\+E\+B\+UG=O\+FF ..}
-\item To compile with D\+E\+B\+UG preprocessor option, saves, prints more {\ttfamily FC=mpif90 cmake -\/D C\+M\+A\+K\+E\+\_\+\+B\+U\+I\+L\+D\+\_\+\+T\+Y\+PE=Debug -\/D P\+L\+A\+T\+F\+R\+O\+M\+\_\+\+N\+A\+ME=lmlm6-\/75 -\/\+D\+D\+E\+F\+I\+N\+E\+\_\+\+D\+E\+B\+UG=ON ..}
+\item To compile with compiler Release flags only {\ttfamily F\-C=gfortran cmake -\/\-D P\-L\-A\-T\-F\-R\-O\-M\-\_\-\-N\-A\-M\-E=lmlm6-\/75 C\-M\-A\-K\-E\-\_\-\-B\-U\-I\-L\-D\-\_\-\-T\-Y\-P\-E=Debug ..} {\ttfamily F\-C=mpif90.\-openmpi cmake -\/\-D P\-L\-A\-T\-F\-R\-O\-M\-\_\-\-N\-A\-M\-E=lmlm6-\/75 C\-M\-A\-K\-E\-\_\-\-B\-U\-I\-L\-D\-\_\-\-T\-Y\-P\-E=Debug ..}
+\item To compile with compiler Debug flags only {\ttfamily F\-C=mpif90 cmake -\/\-D C\-M\-A\-K\-E\-\_\-\-B\-U\-I\-L\-D\-\_\-\-T\-Y\-P\-E=Debug -\/\-D P\-L\-A\-T\-F\-R\-O\-M\-\_\-\-N\-A\-M\-E=lmlm6-\/75 -\/\-D\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-B\-U\-G=O\-F\-F ..}
+\item To compile with D\-E\-B\-U\-G preprocessor option, saves, prints more {\ttfamily F\-C=mpif90 cmake -\/\-D C\-M\-A\-K\-E\-\_\-\-B\-U\-I\-L\-D\-\_\-\-T\-Y\-P\-E=Debug -\/\-D P\-L\-A\-T\-F\-R\-O\-M\-\_\-\-N\-A\-M\-E=lmlm6-\/75 -\/\-D\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-B\-U\-G=O\-N ..}
 \end{DoxyItemize}
 \item Compile {\ttfamily make}
 \item Run tests, you should be on the build folder
 \begin{DoxyItemize}
 \item Run the tests without Fruit outputs  {\ttfamily make test}
-\item Run the tests with Fruit outputs {\ttfamily make test A\+R\+GS=\char`\"{}-\/\+V\char`\"{}}
+\item Run the tests with Fruit outputs {\ttfamily make test A\-R\-G\-S=\char`\"{}-\/\-V\char`\"{}}
 \end{DoxyItemize}
 \item Clean {\ttfamily make distclean}
+\end{DoxyItemize}
+
+\subsubsection*{How to use}
+
+
+\begin{DoxyItemize}
+\item Add shared libraries in your current terminal {\ttfamily L\-I\-B\-Sloc=\char`\"{}/home/solak/\-Workdir/tempdir/\-Workdir/fortan\-\_\-project/my\-Lib/hdf5\char`\"{}} {\ttfamily export L\-D\-\_\-\-L\-I\-B\-R\-A\-R\-Y\-\_\-\-P\-A\-T\-H=\char`\"{}\$\{\-L\-I\-B\-Sloc\}/lib\char`\"{}}
 \end{DoxyItemize}
 
 \subsubsection*{Contributing}
@@ -29,7 +36,7 @@ Mesh Generation Framework as a part of Fortran Project by I\+MP Turbulence 2019 
 
 \begin{DoxyItemize}
 \item {\itshape Make sure you comment each and every block/object/class and every damn variable}
-\item {\itshape P\+L\+E\+A\+SE DO N\+OT U\+SE S\+P\+A\+C\+ES, U\+SE H\+Y\+P\+H\+E\+NS(-\/) or U\+N\+D\+E\+R\+S\+C\+O\+R\+E\+S(\+\_\+) F\+OR F\+I\+L\+E\+N\+A\+M\+ES}
+\item {\itshape P\-L\-E\-A\-S\-E D\-O N\-O\-T U\-S\-E S\-P\-A\-C\-E\-S, U\-S\-E H\-Y\-P\-H\-E\-N\-S(-\/) or U\-N\-D\-E\-R\-S\-C\-O\-R\-E\-S(\-\_\-) F\-O\-R F\-I\-L\-E\-N\-A\-M\-E\-S}
 \end{DoxyItemize}
 
 \subsubsection*{License}

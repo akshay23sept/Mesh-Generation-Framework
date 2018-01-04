@@ -1,0 +1,43 @@
+\indexentry{read\discretionary {-}{}{}\_\discretionary {-}{}{}map\discretionary {-}{}{}::cell@{read\discretionary {-}{}{}\_\discretionary {-}{}{}map\discretionary {-}{}{}::cell}|hyperpage}{9}
+\indexentry{class\discretionary {-}{}{}\_\discretionary {-}{}{}io@{class\discretionary {-}{}{}\_\discretionary {-}{}{}io}|hyperpage}{9}
+\indexentry{class\discretionary {-}{}{}\_\discretionary {-}{}{}mesh@{class\discretionary {-}{}{}\_\discretionary {-}{}{}mesh}|hyperpage}{9}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}!dat\discretionary {-}{}{}\_\discretionary {-}{}{}data\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}data\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}data\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}data\discretionary {-}{}{}\_\discretionary {-}{}{}write}!dat_write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}!digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch@{digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch}|hyperpage}{10}
+\indexentry{digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch@{digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch}!dat_write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}!get\discretionary {-}{}{}\_\discretionary {-}{}{}unit@{get\discretionary {-}{}{}\_\discretionary {-}{}{}unit}|hyperpage}{10}
+\indexentry{get\discretionary {-}{}{}\_\discretionary {-}{}{}unit@{get\discretionary {-}{}{}\_\discretionary {-}{}{}unit}!dat_write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}!i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left@{i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left}|hyperpage}{10}
+\indexentry{i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left@{i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left}!dat_write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}!timestamp@{timestamp}|hyperpage}{10}
+\indexentry{timestamp@{timestamp}!dat_write@{dat\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{10}
+\indexentry{fruit@{fruit}|hyperpage}{10}
+\indexentry{fruit\discretionary {-}{}{}\_\discretionary {-}{}{}util@{fruit\discretionary {-}{}{}\_\discretionary {-}{}{}util}|hyperpage}{11}
+\indexentry{hdfwrite@{hdfwrite}|hyperpage}{11}
+\indexentry{class\discretionary {-}{}{}\_\discretionary {-}{}{}mesh\discretionary {-}{}{}::mesh\discretionary {-}{}{}\_\discretionary {-}{}{}grid@{class\discretionary {-}{}{}\_\discretionary {-}{}{}mesh\discretionary {-}{}{}::mesh\discretionary {-}{}{}\_\discretionary {-}{}{}grid}|hyperpage}{11}
+\indexentry{newtonmod@{newtonmod}|hyperpage}{11}
+\indexentry{read\discretionary {-}{}{}\_\discretionary {-}{}{}map\discretionary {-}{}{}::point@{read\discretionary {-}{}{}\_\discretionary {-}{}{}map\discretionary {-}{}{}::point}|hyperpage}{12}
+\indexentry{point@{point}|hyperpage}{12}
+\indexentry{rat\discretionary {-}{}{}::point@{rat\discretionary {-}{}{}::point}|hyperpage}{12}
+\indexentry{test\discretionary {-}{}{}::point@{test\discretionary {-}{}{}::point}|hyperpage}{13}
+\indexentry{precision@{precision}|hyperpage}{13}
+\indexentry{rat@{rat}|hyperpage}{13}
+\indexentry{read\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}module@{read\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}module}|hyperpage}{13}
+\indexentry{read\discretionary {-}{}{}\_\discretionary {-}{}{}map@{read\discretionary {-}{}{}\_\discretionary {-}{}{}map}|hyperpage}{14}
+\indexentry{test@{test}|hyperpage}{14}
+\indexentry{test\discretionary {-}{}{}\_\discretionary {-}{}{}hdf5@{test\discretionary {-}{}{}\_\discretionary {-}{}{}hdf5}|hyperpage}{14}
+\indexentry{test\discretionary {-}{}{}\_\discretionary {-}{}{}io@{test\discretionary {-}{}{}\_\discretionary {-}{}{}io}|hyperpage}{14}
+\indexentry{test\discretionary {-}{}{}\_\discretionary {-}{}{}mesh@{test\discretionary {-}{}{}\_\discretionary {-}{}{}mesh}|hyperpage}{15}
+\indexentry{vector@{vector}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}!digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch@{digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch}|hyperpage}{15}
+\indexentry{digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch@{digit\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}ch}!vtk_write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}!get\discretionary {-}{}{}\_\discretionary {-}{}{}unit@{get\discretionary {-}{}{}\_\discretionary {-}{}{}unit}|hyperpage}{15}
+\indexentry{get\discretionary {-}{}{}\_\discretionary {-}{}{}unit@{get\discretionary {-}{}{}\_\discretionary {-}{}{}unit}!vtk_write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}!i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left@{i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left}|hyperpage}{15}
+\indexentry{i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left@{i4\discretionary {-}{}{}\_\discretionary {-}{}{}to\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}left}!vtk_write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}!timestamp@{timestamp}|hyperpage}{15}
+\indexentry{timestamp@{timestamp}!vtk_write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}!vtk\discretionary {-}{}{}\_\discretionary {-}{}{}puvw\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}puvw\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
+\indexentry{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}puvw\discretionary {-}{}{}\_\discretionary {-}{}{}write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}puvw\discretionary {-}{}{}\_\discretionary {-}{}{}write}!vtk_write@{vtk\discretionary {-}{}{}\_\discretionary {-}{}{}write}|hyperpage}{15}
