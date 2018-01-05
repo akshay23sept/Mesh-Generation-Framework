@@ -1,0 +1,122 @@
+\hypertarget{classvtk__write}{\section{vtk\-\_\-write Module Reference}
+\label{classvtk__write}\index{vtk\-\_\-write@{vtk\-\_\-write}}
+}
+
+
+M\-O\-D\-U\-L\-E\-: Name of Module/\-Program.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{classvtk__write_ae0e24437ab2ab3888b974ad18faf82d9}{vtk\-\_\-puvw\-\_\-write} (output\-\_\-unit, title, node\-\_\-num, element\-\_\-num, element\-\_\-order, xyz, element\-\_\-node, p, uvw)
+\begin{DoxyCompactList}\small\item\em to define that the module contains the following sub-\/programs \end{DoxyCompactList}\item 
+subroutine \hyperlink{classvtk__write_a10a8f6e1ed00480f1a7ce84d7cbf517a}{digit\-\_\-to\-\_\-ch} (digit, ch)
+\item 
+subroutine \hyperlink{classvtk__write_a3a9f616764890e5348504a4634364e17}{get\-\_\-unit} (iunit)
+\item 
+subroutine \hyperlink{classvtk__write_a136ed0a5a2367893ebb93bed1b757b99}{i4\-\_\-to\-\_\-s\-\_\-left} (i4, s)
+\item 
+subroutine \hyperlink{classvtk__write_acd768e2181dd4969a07b5f03fde6b705}{timestamp} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+M\-O\-D\-U\-L\-E\-: Name of Module/\-Program. 
+
+\begin{DoxyAuthor}{Author}
+A\-D\-D A\-U\-T\-H\-O\-R N\-A\-M\-E Description of Module/\-Program 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function/\-Subroutine Documentation}
+\hypertarget{classvtk__write_a10a8f6e1ed00480f1a7ce84d7cbf517a}{\index{vtk\-\_\-write@{vtk\-\_\-write}!digit\-\_\-to\-\_\-ch@{digit\-\_\-to\-\_\-ch}}
+\index{digit\-\_\-to\-\_\-ch@{digit\-\_\-to\-\_\-ch}!vtk_write@{vtk\-\_\-write}}
+\subsubsection[{digit\-\_\-to\-\_\-ch}]{\setlength{\rightskip}{0pt plus 5cm}subroutine vtk\-\_\-write\-::digit\-\_\-to\-\_\-ch (
+\begin{DoxyParamCaption}
+\item[{integer ( ik )}]{digit, }
+\item[{character}]{ch}
+\end{DoxyParamCaption}
+)}}\label{classvtk__write_a10a8f6e1ed00480f1a7ce84d7cbf517a}
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & D\-I\-G\-I\-T\-\_\-\-T\-O\-\_\-\-C\-H returns the character representation of a decimal digit.\\
+\hline
+{\em digit} & character C\-H, the corresponding character. \\
+\hline
+\end{DoxyParams}
+D\-I\-G\-I\-T, the digit value between 0 and 9. \hypertarget{classvtk__write_a3a9f616764890e5348504a4634364e17}{\index{vtk\-\_\-write@{vtk\-\_\-write}!get\-\_\-unit@{get\-\_\-unit}}
+\index{get\-\_\-unit@{get\-\_\-unit}!vtk_write@{vtk\-\_\-write}}
+\subsubsection[{get\-\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}subroutine vtk\-\_\-write\-::get\-\_\-unit (
+\begin{DoxyParamCaption}
+\item[{integer ( ik )}]{iunit}
+\end{DoxyParamCaption}
+)}}\label{classvtk__write_a3a9f616764890e5348504a4634364e17}
+A \char`\"{}free\char`\"{} F\-O\-R\-T\-R\-A\-N unit number is an integer between 1 and 99 which is not currently associated with an I/\-O device. A free F\-O\-R\-T\-R\-A\-N unit number is needed in order to open a file with the O\-P\-E\-N command. If I\-U\-N\-I\-T = 0, then no free F\-O\-R\-T\-R\-A\-N unit could be found, although all 99 units were checked (except for units 5, 6 and 9, which are commonly reserved for console I/\-O). Otherwise, I\-U\-N\-I\-T is an integer between 1 and 99, representing a free F\-O\-R\-T\-R\-A\-N unit. Note that G\-E\-T\-\_\-\-U\-N\-I\-T assumes that units 5 and 6 are special, and will never return those values.
+
+I\-U\-N\-I\-T, the free unit number. \hypertarget{classvtk__write_a136ed0a5a2367893ebb93bed1b757b99}{\index{vtk\-\_\-write@{vtk\-\_\-write}!i4\-\_\-to\-\_\-s\-\_\-left@{i4\-\_\-to\-\_\-s\-\_\-left}}
+\index{i4\-\_\-to\-\_\-s\-\_\-left@{i4\-\_\-to\-\_\-s\-\_\-left}!vtk_write@{vtk\-\_\-write}}
+\subsubsection[{i4\-\_\-to\-\_\-s\-\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}subroutine vtk\-\_\-write\-::i4\-\_\-to\-\_\-s\-\_\-left (
+\begin{DoxyParamCaption}
+\item[{integer ( ik )}]{i4, }
+\item[{character ( len = $\ast$ )}]{s}
+\end{DoxyParamCaption}
+)}}\label{classvtk__write_a136ed0a5a2367893ebb93bed1b757b99}
+I4\-\_\-\-T\-O\-\_\-\-S\-\_\-\-L\-E\-F\-T converts an I4 to a left-\/justified string.
+
+i4 is an integer to be converted.
+
+Make a copy of the integer.
+
+Handle the negative sign.
+
+The absolute value of the integer goes into S(\-I\-L\-O\-:\-I\-H\-I).
+
+Find the last digit of I\-V\-A\-L, strip it off, and stick it into the string.
+
+Shift the string to the left. \hypertarget{classvtk__write_acd768e2181dd4969a07b5f03fde6b705}{\index{vtk\-\_\-write@{vtk\-\_\-write}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!vtk_write@{vtk\-\_\-write}}
+\subsubsection[{timestamp}]{\setlength{\rightskip}{0pt plus 5cm}subroutine vtk\-\_\-write\-::timestamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classvtk__write_acd768e2181dd4969a07b5f03fde6b705}
+T\-I\-M\-E\-S\-T\-A\-M\-P prints the current Y\-M\-D\-H\-M\-S date as a time stamp \hypertarget{classvtk__write_ae0e24437ab2ab3888b974ad18faf82d9}{\index{vtk\-\_\-write@{vtk\-\_\-write}!vtk\-\_\-puvw\-\_\-write@{vtk\-\_\-puvw\-\_\-write}}
+\index{vtk\-\_\-puvw\-\_\-write@{vtk\-\_\-puvw\-\_\-write}!vtk_write@{vtk\-\_\-write}}
+\subsubsection[{vtk\-\_\-puvw\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}subroutine vtk\-\_\-write\-::vtk\-\_\-puvw\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{integer ( ik )}]{output\-\_\-unit, }
+\item[{character ( len = $\ast$ )}]{title, }
+\item[{integer ( ik )}]{node\-\_\-num, }
+\item[{integer ( ik )}]{element\-\_\-num, }
+\item[{integer ( ik )}]{element\-\_\-order, }
+\item[{real ( rk ), dimension(3,node\-\_\-num)}]{xyz, }
+\item[{integer ( ik ), dimension(element\-\_\-order,element\-\_\-num)}]{element\-\_\-node, }
+\item[{real ( rk ), dimension(node\-\_\-num)}]{p, }
+\item[{real ( rk ), dimension(3,node\-\_\-num)}]{uvw}
+\end{DoxyParamCaption}
+)}}\label{classvtk__write_ae0e24437ab2ab3888b974ad18faf82d9}
+
+
+to define that the module contains the following sub-\/programs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element\-\_\-num} & V\-T\-K\-\_\-\-P\-U\-V\-W\-\_\-\-W\-R\-I\-T\-E writes pressure and velocity data to a V\-T\-K file.\\
+\hline
+{\em element\-\_\-order} & number of elements\\
+\hline
+{\em node\-\_\-num} & order of the elements\\
+\hline
+{\em p} & the unit number of each file\\
+\hline
+{\em uvw} & title of the data\\
+\hline
+{\em xyz} & the velocity at each nodes \\
+\hline
+\end{DoxyParams}
+node coordinates 
+
+The documentation for this module was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/mesh\-\_\-formats/vtk/vtk\-\_\-write.\-f90\end{DoxyCompactItemize}

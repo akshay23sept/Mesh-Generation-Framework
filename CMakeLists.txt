@@ -42,44 +42,27 @@ IF(DEFINE_DEBUG)
   ADD_DEFINITIONS(-DDEBUG)
 ENDIF(DEFINE_DEBUG)
 
-#------------------------------------------------------------------------------
-# MACHINE LMLM6-75
-#------------------------------------------------------------------------------
-if(PLATFROM_NAME MATCHES "lmlm6-75")
+# gfortran compiler (LINUX)
+set(CMAKE_Fortran_FLAGS "-std=f2008 -cpp")
+set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -ffast-math -funroll-loops")
+#  set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -Warray-bounds -fbounds-check -std=legacy -Wall -Wno-unused -Warray-temporaries -pedantic-errors")
+set(CMAKE_Fortran_FLAGS_DEBUG "-Og -g -Wmaybe-uninitialized -Wunused-dummy-argument -Wconversion -fbacktrace -ffree-line-length-0 -fcheck=all")  #-fimplicit-none -ffpe-trap=zero,overflow,underflow") # -finit-real=nan")
+set(DOUBLE "-fdefault-real-8")
 
-  message( STATUS "Build for platfrom: " ${PLATFROM_NAME})
-  
-  # Location for NETCDF libraries
-  set(LIBSloc "/home/solak/programs/LIBS")
-  set(NETCDFloc  "${LIBSloc}/netcdf-c-4.4.1.1")
-  set(NETCDFFloc "${LIBSloc}/netcdf-fortran-4.4.4")
-  
-  #/usr/lib/lapack/liblapack.a
+if(PLATFROM_NAME MATCHES "ilkay")
 
-  #set(LAPACKLIB "-L/usr/lib/liblapack.a")
-  set(LAPACKLIB "-Wl,--start-group /usr/lib/libblas/libblas.a /usr/lib/lapack/liblapack.a  -Wl,--end-group")
+message( STATUS "Build for platfrom: " ${PLATFROM_NAME})
 
-  # Location of PETSc libraries (example)
-  #set(PETSCloc "${LIBSloc}/petsc-3.7.5")
-  #set(PETSCopt "-lpetsc -lHYPRE -ldmumps -lsuperlu_dist -lmumps_common -lparmetis -lmetis -lpord -lscalapack -lfftw3 -lfftw3_mpi")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ")
 
-  # gfortran compiler (LINUX)
-  set(CMAKE_Fortran_FLAGS "-std=f2008 -cpp")
-  set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -ffast-math -funroll-loops")
-  #  set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -Warray-bounds -fbounds-check -std=legacy -Wall -Wno-unused -Warray-temporaries -pedantic-errors")
-  set(CMAKE_Fortran_FLAGS_DEBUG "-Og -g -Wmaybe-uninitialized -Wunused-dummy-argument -Wconversion -fbacktrace -ffree-line-length-0 -fcheck=all")  #-fimplicit-none -ffpe-trap=zero,overflow,underflow") # -finit-real=nan")
-  set(DOUBLE "-fdefault-real-8")
-  # set any extra envionment variables here
-  set(LIBSloc "/home/solak/programs/LIBS")
-  set(my_PATH "${LIBSloc}/hdf5-1.8.13/lib:${LIBSloc}/petsc-3.7.5/lib:${LIBSloc}/netcdf-c-4.4.1.1/lib:${LIBSloc}/netcdf-fortran-4.4.4/lib:$LD_LIBRARY_PATH")
-  message( STATUS "PATH PATH:" ${my_PATH})
-
-  #set (LIBSloc "/home/solak/programs/LIBS")
-  # set (myRlink "${LIBSloc}/hdf5-1.8.13/lib:${LIBSloc}/petsc-3.7.5/lib:${LIBSloc}/netcdf-c-4.4.1.1/lib:${LIBSloc}/netcdf-fortran-4.4.4/lib:$LD_LIBRARY_PATH")
-  
-
-  #set(CMAKE_INSTALL_RPATH ${myRlink})
-  set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+# Set libraries
+set(HDF5opt    "-lhdf5_fortran -lhdf5 -lz -lm")
+set(HDF5loc    "/home/solak/Workdir/tempdir/Workdir/fortan_project/myLib/hdf5")
+set(HDF5lib    "-L/${HDF5loc}/lib ${HDF5opt}")
+set(NETCDFopt  "N/A")
+set(NETCDFFopt "N/A")
+set(NETCDFLIB  "N/A")
+set(PETSCLIB   "N/A")
   
 #------------------------------------------------------------------------------
 # MACHINE E505
@@ -88,21 +71,20 @@ elseif(PLATFROM_NAME MATCHES "E505")
 
 # Put your config. here
 
+# Set libraries
+#set(NETCDFopt  "-lnetcdf")
+#set(NETCDFFopt "-lnetcdff")
+#set(NETCDFLIB "-L${NETCDFloc}/lib ${NETCDFopt} -L${NETCDFFloc}/lib ${NETCDFFopt}")
+#set(PETSCLIB  "-L${PETSCloc}/lib ${PETSCopt}")
 endif()
-
 
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ")
 
-# Set libraries
-set(NETCDFopt  "-lnetcdf")
-set(NETCDFFopt "-lnetcdff")
-set(NETCDFLIB "-L${NETCDFloc}/lib ${NETCDFopt} -L${NETCDFFloc}/lib ${NETCDFFopt}")
-set(PETSCLIB  "-L${PETSCloc}/lib ${PETSCopt}")
 ##################################################################
 
 set(X11LIB "-lX11")
-include_directories(${PETSCloc}/include ${NETCDFFloc}/include)
+include_directories(${PETSCloc}/include ${NETCDFFloc}/include ${HDF5loc}/include)
 
 if (${CMAKE_BUILD_TYPE} MATCHES "Release")
 message( STATUS "Fortran compiler flags:" ${CMAKE_Fortran_FLAGS_RELEASE})
@@ -110,8 +92,14 @@ elseif (${CMAKE_BUILD_TYPE} MATCHES "Debug")
 message( STATUS "Fortran compiler flags:" ${CMAKE_Fortran_FLAGS_DEBUG})
 endif()
 
-message( STATUS "Netcdf library flags:" ${NETCDFLIB})
-message( STATUS "Petsc library flags:" ${PETSCLIB})
+# ------------------------------------------------------------------------------
+# Libraries
+# ------------------------------------------------------------------------------
+message( STATUS "HDF5 library loc:" ${HDF5loc})
+message( STATUS "HDF5 library flags:" ${HDF5opt})
+message( STATUS "HDF5 library cmake variable:" ${HDF5lib})
+#message( STATUS "Netcdf library flags:" ${NETCDFLIB})
+#message( STATUS "Petsc library flags:" ${PETSCLIB})
 
 # ------------------------------------------------------------------------------
 # Custom targets

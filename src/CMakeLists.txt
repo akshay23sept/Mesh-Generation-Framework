@@ -3,23 +3,30 @@
 # -----------------------------------------------------------------------------
 
 # class utils
-SET(UTILS utils)
-ADD_LIBRARY(${UTILS} STATIC utils/color_print.f90 
-                            utils/tictoc.f90       )
+#SET(UTILS utils)
+#ADD_LIBRARY(${UTILS} STATIC utils/color_print.f90 
+#                            utils/tictoc.f90       )
 
 # class precision
 SET(PREC prec)
-ADD_LIBRARY(${PREC} STATIC precision/precision.f90 )
+ADD_LIBRARY(${PREC} STATIC precision.f90 )
+
+
+# class hdffile
+SET(HDFFILE hdffile)
+ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/hdf5write.f90)
+target_link_libraries(${HDFFILE} ${PREC} ${HDF5lib})
+
 
 # class io
-SET(IO io)
-ADD_LIBRARY(${IO} STATIC class_io/class_io.f90) 
-target_link_libraries(${IO} ${NETCDFLIB})
+#SET(IO io)
+#ADD_LIBRARY(${IO} STATIC class_io/class_io.f90) 
+#target_link_libraries(${IO} ${NETCDFLIB})
 
 # class mesh
-SET(MESH mesh)
-ADD_LIBRARY(${MESH} STATIC class_mesh/class_mesh.f90)
-target_link_libraries(${MESH} ${PREC} ${IO})
+#SET(MESH mesh)
+#ADD_LIBRARY(${MESH} STATIC class_mesh/class_mesh.f90)
+#target_link_libraries(${MESH} ${PREC} ${IO})
 
 
 # add others for your own code
@@ -28,6 +35,12 @@ target_link_libraries(${MESH} ${PREC} ${IO})
 # -------------------------------------------------------------------------------------------------------------------------
 # Executables
 # -------------------------------------------------------------------------------------------------------------------------
+
+SET(HDFEXE hdfexe)
+ADD_EXECUTABLE(${HDFEXE} mesh_formats/hdf5/hdftest.f90)
+target_link_libraries(${HDFEXE} ${HDFFILE})
+
+
 
 # navier3d (Example only)
 #SET(TESTNAV testnav)
