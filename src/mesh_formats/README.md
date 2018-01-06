@@ -1,3 +1,7 @@
-# To Do List
-1. Modularise vtk test code
-2. test unofficial fortran api / official py2fort bindings for HDF5
+# Mesh Formats
+Mesh would be written to these file formats:
+1. HDF5
+2. VTK
+
+External Dependencies:
+lib hdf5-1.8 
