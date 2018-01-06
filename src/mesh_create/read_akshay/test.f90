@@ -1,9 +1,9 @@
 program read
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-!> This is a simple program to check wheather the module is working in desired manner or not 
-
+!>Introduction
+!> This is a simple program to check wheather the module is working in desired manner or not (test for check of my module to be used in Alvaro's code)
+!>Author Akshay
 use read_file_module
 
 !> This is the permission given to the main program to have an access to your mocule also Calling my module for the "basic-check" of module which will be further "implimanted" in mesh-generation program  
@@ -52,12 +52,12 @@ print*, 'y2'
 end program read
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!> Compile using  gfortran read.f90 -o read.exe  
+!> Compile using  gfortran test.f90 -o test.exe  
 
 
 !>To integrate the module with the main program then to check wheather module is working perfect or not  
  
-!>Compile using       gfortran read.f90 read_file.o -o read.exe  
+!>Compile using       gfortran test.f90 read_file.o -o test.exe  
 !>Run using   ./read.exe  
 
 

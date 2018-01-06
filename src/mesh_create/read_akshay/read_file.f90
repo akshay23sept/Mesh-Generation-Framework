@@ -21,6 +21,7 @@ module read_file_module
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
 !> This is a module that read the data from a file and introduce it in the variables  !
 
    implicit none
@@ -32,6 +33,9 @@ contains
    
 
         subroutine read_file (filepuntos,x,y,y2,N)
+
+        use precision
+
 !>x,y and y2 are the co-ordinates ,filepuntos is a file that will read the data from a file and introduce it into a variable.
 
                     integer ::N
@@ -112,9 +116,8 @@ end module read_file_module
 !> Compile using  gfortran -c read_file.f90 
 
 
-!>To integrate the module with the main program then to check wheather module is working perfect or not  
+!>To integrate the module with the main program (here for test case) then to check wheather module is working perfect or not  
  
-!>Compile using       gfortran read.f90 read_file.o -o read.exe 
+!>Compile using       gfortran test.f90 read_file.o -o read.exe 
  
-!>Run using   ./read.exe  
-
+!>Run using   ./test.exe  
