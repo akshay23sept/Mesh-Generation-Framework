@@ -14,7 +14,11 @@ ADD_LIBRARY(${PREC} STATIC precision.f90 )
 
 # class hdffile
 SET(HDFFILE hdffile)
+<<<<<<< HEAD
+ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/module_hdf5write.f90)
+=======
 ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/module_hdfwrite.f90)
+>>>>>>> 1103e47acf8ea62db0de960aac0d865a91e255d6
 target_link_libraries(${HDFFILE} ${PREC} ${HDF5lib})
 
 
@@ -40,7 +44,10 @@ SET(HDFEXE hdfexe)
 ADD_EXECUTABLE(${HDFEXE} mesh_formats/hdf5/hdftest.f90)
 target_link_libraries(${HDFEXE} ${HDFFILE})
 
-
+file(GLOB mod_file mesh_analysis/Module/*.f90)  # In order to create a group containing all the .f90 files in Module-folder
+SET(HEADER Module)                               
+ADD_LIBRARY(${HEADER} STATIC ${mod_file})       # I called ${mod} instead of the list of every module in module-folder
+target_link_libraries(${HEADER} ${PREC})        # IMPORTANT : ADD OTHER PART FOR READ_MAP
 
 # navier3d (Example only)
 #SET(TESTNAV testnav)
