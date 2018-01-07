@@ -7,7 +7,7 @@
 !> @author
 !> Mohan and Aakash
 !
-! DESCRIPTION: 
+!> DESCRIPTION: 
 !> This program creates mesh in HDF5 format 
 !
 !---------------------------------------------------------------------

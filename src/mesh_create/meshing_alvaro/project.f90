@@ -197,7 +197,7 @@ z3=0
 z4=0
 
 !This is the file where we write the results of the mesh creating.
- write (nameprogr,*) 'pointlist.dat'
+ write (nameprogr,*) 'raw_mesh.dat'
  open(1,file=nameprogr) 
 
 write(1,*) N*M
