@@ -1,10 +1,5 @@
  # dat DataFile Version 0.0
-<<<<<<< HEAD
  data output for .dat_WRITE                                                       
-=======
- data output for .dat_WRITE                                                      
- ASCII
->>>>>>> 83b0ace25686c943fe39b611d7a5336787490d79
  DATASET UNSTRUCTURED_GRID
  nodexyzuvwvelocity datapressure
            1   0.0000000000000000        0.0000000000000000        1.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
