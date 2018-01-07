@@ -18,7 +18,7 @@ use HDF5
 use precision
 IMPLICIT NONE
 contains
-subrountine hdfwrite()
+subroutine hdfwrite()
 !> creating subroutine to generate hdf file
 IMPLICIT NONE
 CHARACTER(LEN=11), PARAMETER :: filename = "mesh.h5" 

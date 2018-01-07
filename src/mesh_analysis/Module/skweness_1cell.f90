@@ -1,4 +1,6 @@
-program skewness_1cell
+module skewness_1cell
+  contains 
+  subroutine File_Skewness(myFileName)
   use  READ_MAP 
   use precision
 
@@ -27,7 +29,7 @@ program skewness_1cell
 
 !!!!!!!!!!!!!!! In order to includ Drashti's mapping !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  myFileName1='raw_mesh.dat'
+!  myFileName1='raw_mesh.dat'
 
   open(99, file=myFileName1)
   write(*,*)'open data file'
@@ -101,5 +103,5 @@ print*, P_4
 !  print*, beta 
   print*, max_skewness
 !  end subroutine skewness_one_cell
-
-end program skewness_1cell
+  end subroutine File_Skewness
+end module skewness_1cell

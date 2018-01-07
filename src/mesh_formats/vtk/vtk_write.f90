@@ -1,28 +1,12 @@
-!---------------------------------------------------------------------
-! Mesh Generation Framework                    
-!---------------------------------------------------------------------
-!
-!> MODULE: Name of Module/Program
-!
-!> @author
-!> ADD AUTHOR NAME
-!
-! DESCRIPTION: 
-!> Description of Module/Program
-!
-!---------------------------------------------------------------------
-!
-
-module vtk_write
+module vtk_write 
 !>module initialisation
-use precision 
-
-contains
+use precision
+contains 
 !>to define that the module contains the following sub-programs
 
-subroutine vtk_puvw_write ( output_unit, title, node_num, element_num, &
+subroutine vtk_data_write ( output_unit, title, node_num, element_num, &
   element_order, xyz, element_node, p, uvw)
-!>VTK_PUVW_WRITE writes pressure and velocity data to a VTK file.
+!>DAT_DATA_WRITE writes pressure and velocity data to a .DAT file.
 
  implicit none
 
@@ -41,64 +25,49 @@ subroutine vtk_puvw_write ( output_unit, title, node_num, element_num, &
   character ( len = 20 ):: node_num_string
   integer ( ik ) ::output_unit 
   !>the unit number of each file
-  real ( rk ) :: p(node_num)
+  real ( rk ):: p(node_num)
   character ( len = 20 ):: s_node_num
   character ( len = 20 ) ::s_element_num
-  character ( len = * ) ::title
-  !>title of the data
   real ( rk ):: uvw(3,node_num) 
   !>the velocity at each nodes
   real ( rk ) :: xyz(3,node_num)
   !>node coordinates
 
-  call i4_to_s_left ( node_num, node_num_string )
-  call i4_to_s_left ( element_num, element_num_string )
-  call i4_to_s_left ( element_num * ( element_order + 1 ), cell_size_string )
+  integer (ik)::i,cell,j
+  real (rk) :: xcoordinates(element_order),ycoordinates(element_num)
 
-  write ( output_unit, '(a)' ) '# vtk DataFile Version 2.0'
-  write ( output_unit, '(a)' ) title
-  write ( output_unit, '(a)' ) 'ASCII'
-  write ( output_unit, '(a)' ) 'DATASET UNSTRUCTURED_GRID'
-  write ( output_unit, '(a)' ) 'POINTS ' // trim ( s_node_num ) // ' double'
+  character(len=80) :: myFileName,title
+  character(len=30) :: myFormat
 
-  do node = 1, node_num
-    write ( output_unit, '(2x,g14.6,2x,g14.6,2x,g14.6)' ) xyz(1:3,node)
-  end do
-  write ( output_unit, '(a)' ) ' '
-  write ( output_unit, '(a)' ) 'CELLS ' // trim ( element_num_string ) &
-    // ' ' // trim ( cell_size_string )
-  do element = 1, element_num
-    write ( output_unit, '(2x,i4,10(2x,i4))' ) &
-      element_order, element_node(1:element_order,element) - 1
+  cell=(element_num-1)*(element_order-1)
+
+  do i=1,element_order
+  xcoordinates(i)=xyz(1,i*element_num)
   end do
 
-  write ( output_unit, '(a)' ) ' '
-  write ( output_unit, '(a)' ) 'CELL_TYPES ' // trim ( element_num_string )
-
-  if ( element_order == 4 ) then
-    do element = 1, element_num
-      write ( output_unit, '(a)' ) '10'
-    end do
-  else if ( element_order == 10 ) then
-    do element = 1, element_num
-      write ( output_unit, '(a)' ) '24'
-    end do
-  end if
-
-  write ( output_unit, '(a)' ) ' '
-  write ( output_unit, '(a)' ) 'POINT_DATA ' // trim ( node_num_string )
-  write ( output_unit, '(a)' ) 'SCALARS pressure double'
-  write ( output_unit, '(a)' ) 'LOOKUP_TABLE default'
-  do node = 1, node_num
-    write ( output_unit, '(2x,g14.6)' ) p(node)
+  do j=1,element_num
+  ycoordinates(j)=xyz(2,j)
   end do
-  write ( output_unit, '(a)' ) 'VECTORS velocity double'
-  do node = 1, node_num
-    write ( output_unit, '(3(2x,g14.6))' ) uvw(1:3,node)
-end do
 
-  return
-end
+  myFileName='vtkoutput.vtk'!name of the outputs file generated
+
+ open(90,file=myFileName) !to write the output file
+ write(90,"(A26)")'# vtk DataFile Version 3.0'  
+ write (90,"(A9)")title
+ write (90,"(A5)")'ASCII'
+ write (90,"(A24)")'DATASET RECTILINEAR_GRID'
+ write(90,"(A11,I2.1,A1,I2.1,A1,I1.1)")'DIMENSIONS ',element_order,' ',element_num,' ',1
+ write(90,"(A14,I2.1,A6)")'X_COORDINATES ',element_order,' float'
+ write (90,"(F18.15)")xcoordinates
+ write(90,"(A14,I2.1,A6)")'Y_COORDINATES ', element_num,' float'
+ write (90,"(F18.15)")ycoordinates
+ write(90,"(A21)")'Z_COORDINATES 1 float'
+ write (90,"(I1.1)")0
+
+ close(90)
+
+end subroutine
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine digit_to_ch ( digit, ch )
 !> DIGIT_TO_CH returns the character representation of a decimal digit.
