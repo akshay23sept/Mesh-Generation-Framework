@@ -40,7 +40,7 @@ print*, '#######################################################################
 print*, 'Choose the type of mesh' !elaborate
 !write the switch case here
 !include Alvaro's subroutine(nozzle) as
-!include your subroutine(rectangular) as case 2
+!include Drashti's subroutine(rectangular) as case 2
 
 !> Call all the proper subroutine(s) 
 
