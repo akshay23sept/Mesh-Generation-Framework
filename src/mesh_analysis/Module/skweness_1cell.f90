@@ -1,18 +1,3 @@
-!---------------------------------------------------------------------
-! Mesh Generation Framework                    
-!---------------------------------------------------------------------
-!
-!> MODULE: Name of Module/Program
-!
-!> @author
-!> ADD AUTHOR NAME
-!
-! DESCRIPTION: 
-!> Description of Module/Program
-!
-!---------------------------------------------------------------------
-!
-
 program skewness_1cell
   use  READ_MAP 
   use precision
@@ -28,13 +13,13 @@ program skewness_1cell
   character(len=20) :: datafile                            ! Data file for my test
   character(len=20) :: myFileName1                         ! in order to include Drashti's mapping
   integer(ik) :: node_num, element_xtot, element_ytot      ! in order to include Drashti's mapping
-  real(8), allocatable :: map1(:,:)                        ! Vector containing all the cells (in order to simplify the code == no breaking column)
+  type(cell), allocatable :: map1(:)                       ! Vector containing all the cells (in order to simplify the code == no breaking column)
   integer :: i,n
 !!!!!!!!!!!!!!!!!!! Define a type point !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  type Point
-    real(8) :: x,y,z
-  end type Point
+ ! type Point
+ !   real(8) :: x,y,z
+ ! end type Point
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -47,23 +32,36 @@ program skewness_1cell
   open(99, file=myFileName1)
   write(*,*)'open data file'
   read(99, *) node_num,element_xtot,element_ytot
+
+
   
-  map1 = map(node_num,element_xtot,element_ytot)  ! Now I have the vector containing all the cells 
+  allocate(map1((element_xtot-1)*(element_ytot-1)))
+
+  map1 = cells(node_num,element_xtot,element_ytot)  ! Now I have the vector containing all the cells 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 !!!!!!!!!!!!!!!!!!!!!!!! For my test !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   
-  datafile = 'data.dat' !'data_point_cell.dat'
+!  datafile = 'data.dat' !'data_point_cell.dat'
   
-  open(1, file = datafile, status = 'old') 
-  read(1, *) k, P_1%x, P_1%y, P_1%z, P_2%x, P_2%y, P_2%z, P_3%x, P_3%y, P_3%z, P_4%x, P_4%y, P_4%z
+!  open(1, file = datafile, status = 'old') 
+!  read(1, *) k, P_1%x, P_1%y, P_1%z, P_2%x, P_2%y, P_2%z, P_3%x, P_3%y, P_3%z, P_4%x, P_4%y, P_4%z
   
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   max_skewness = 0
 
-  do i=1, node_num-1
+  do i=1, (element_xtot-1)*(element_ytot-1)
+    P_1 = map1(i)%P1
+    P_2 = map1(i)%P2
+    P_3 = map1(i)%P3
+    P_4 = map1(i)%P4
+print*, 'cell', map1(i)%indx
+print*, P_1
+print*, P_2
+print*, P_3
+print*, P_4
 
   if (P_1%x-P_3%x > 0) then 
       alpha = atan((P_1%y-P_3%y)/(P_1%x-P_3%x))

@@ -1,5 +1,29 @@
+<<<<<<< HEAD
 program dat_read
 use dat_write
+=======
+!---------------------------------------------------------------------
+! Mesh Generation Framework                    
+!---------------------------------------------------------------------
+!
+!> MODULE: Name of Module/Program
+!
+!> @author
+!> ADD AUTHOR NAME
+!
+! DESCRIPTION: 
+!> Description of Module/Program
+!
+!---------------------------------------------------------------------
+!
+
+
+
+
+program dat_read
+use dat_write
+use precision
+>>>>>>> 83b0ace25686c943fe39b611d7a5336787490d79
   implicit none
 
   call timestamp ( )
@@ -28,11 +52,19 @@ subroutine test01 ( )
   character ( len = 80 ) output_filename
   character ( len = 80 ) title
 
+<<<<<<< HEAD
   real              :: myLine
   integer           :: i, j, myRow,myColumn,node_num,element_num,element_order,output_unit
   character(len=30) :: myFileName1
   real(8),allocatable ::n(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
   integer,allocatable :: element_node(:,:)
+=======
+  real (rk)             :: myLine
+  integer  (ik)         :: i, j, myRow,myColumn,node_num,element_num,element_order,output_unit
+  character(len=30) :: myFileName1
+  real(rk),allocatable ::n(:),xyz(:,:),x(:),y(:),z(:),u(:),uvw(:,:),v(:),w(:),p(:)
+  integer(ik),allocatable :: element_node(:,:)
+>>>>>>> 83b0ace25686c943fe39b611d7a5336787490d79
 
   write ( *, '(a)' ) ' '
   write ( *, '(a)' ) 'TEST01'

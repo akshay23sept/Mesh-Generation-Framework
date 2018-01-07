@@ -2,13 +2,13 @@
 ! Mesh Generation Framework                    
 !---------------------------------------------------------------------
 !
-!> MODULE: Name of Module/Program
+!> MODULE: Smoothness
 !
 !> @author
-!> ADD AUTHOR NAME
+!> Roy Prosun
 !
 ! DESCRIPTION: 
-!> Description of Module/Program
+!>  To Reckon the Smoothness of a given mesh
 !
 !---------------------------------------------------------------------
 !
