@@ -1,12 +1,12 @@
-module dat_write 
+module csv_write 
 !>module initialisation
 use precision
 contains 
 !>to define that the module contains the following sub-programs
 
-subroutine dat_data_write ( output_unit, title, node_num, element_num, &
+subroutine csv_data_write ( output_unit, title, node_num, element_num, &
   element_order, xyz, element_node, p, uvw)
-!>DAT_DATA_WRITE writes pressure and velocity data to a .DAT file.
+!>DAT_DATA_WRITE writes pressure and velocity data to a .csv file.
 
  implicit none
 
@@ -38,16 +38,14 @@ subroutine dat_data_write ( output_unit, title, node_num, element_num, &
   character(len=30) :: myFileName
   character(len=30) :: myFormat
 
-  myFileName='dataoutput.dat'!name of the outputs file generated
+  myFileName='csvaoutput.csv'!name of the outputs file generated
 
  open(99,file=myFileName) !to write the output file
- write(*,*)'open data file'
 
- write(99,*)'# dat DataFile'  
- write(99,*)'node','x','y','z','u','v','w', 'velocity data','pressure'
+ write(99,*)'x',',','y',',','z'
  do node = 1, node_num
-    write ( 99, * ) node,xyz(1,node),xyz(2,node),&
- xyz(3,node),uvw(1,node),uvw(2,node),uvw(3,node),p(node)
+    write ( 99, * ) xyz(1,node),',',xyz(2,node),',',&
+ xyz(3,node)
   end do
 
  close(99)
