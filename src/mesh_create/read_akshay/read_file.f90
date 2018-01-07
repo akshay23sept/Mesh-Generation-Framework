@@ -6,10 +6,10 @@
 
 !
 !> @author
-!> Akshay
+!> Akshay Anand
 !
-! DESCRIPTION: 
-!> This is a module that read the data from a file and introduce it in the variables  
+!> DESCRIPTION: 
+!> This is a module that read the data from a file and introduce it in the variables. This is a module that read the data from a file and introduce it in the variables    
 !---------------------------------------------------------------------
 !
 
@@ -21,15 +21,17 @@ module read_file_module
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! This is a module that read the data from a file and introduce it in the variables  !
    implicit none
 
 contains
 
    
-                               !//// Calling a subroutine for reading the data ////!
+                               !> Calling a subroutine for reading the data 
         subroutine read_file (filepuntos,x,y,y2,N)
-                        integer ::N,i,counter
+                        integer ::N
+                        !>N is number of something
+                        integer ::i,counter
+                        !> i is counter
                         character(len=20)::filepuntos
                         real,allocatable::x(:), y(:), y2(:) 
         
@@ -53,4 +55,4 @@ counter=0
 
 end module read_file_module
 
-!Compile using  // gfortran -c read_file.f90
+!>Compile using  // gfortran -c read_file.f90
