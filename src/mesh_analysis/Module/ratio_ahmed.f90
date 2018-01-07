@@ -17,23 +17,24 @@ character(len=30) :: testfile
 
 open(1,file=testfile)
 READ(1,*) N                                                                 ! import the number of cells from the data file    
-maxi_as = 0
+maxi_as = 0        ! initial aspect ratio
 
 do i=1, N
 
-read (1,*) k,p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                 ! import the date of points from the data file
+read (1,*) k,p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                 ! import the data of points from the data file
 
 
+                          !//////////////////////////////////////////////////////////////////
 
-p1p2=(((p2x-p1x)**2)+(((p2y-p1y)**2))+(((p2z-p1z)**2)))**0.5
-p2p3=(((p3x-p2x)**2)+(((p3y-p2y)**2))+(((p3z-p2z)**2)))**0.5
-p3p4=(((p4x-p3x)**2)+(((p4y-p3y)**2))+(((p4z-p3z)**2)))**0.5
-p4p1=(((p4x-p1x)**2)+(((p4y-p1y)**2))+(((p4z-p1z)**2)))**0.5
+p1p2=(((p2x-p1x)**2)+(((p2y-p1y)**2))+(((p2z-p1z)**2)))**0.5     !!!            
+p2p3=(((p3x-p2x)**2)+(((p3y-p2y)**2))+(((p3z-p2z)**2)))**0.5     !!!!!     ! the length magnitute for 2 points on the same axis
+p3p4=(((p4x-p3x)**2)+(((p4y-p3y)**2))+(((p4z-p3z)**2)))**0.5     !!!!!
+p4p1=(((p4x-p1x)**2)+(((p4y-p1y)**2))+(((p4z-p1z)**2)))**0.5     !!!
 
-
+                          !///////////////////////////////////////////////////////////////////
 as=(max(p1p2,p2p3,p3p4,p4p1))/(min(p1p2,p2p3,p3p4,p4p1))                    ! the aspect ratio of every cell
 
-maxi_as = max(maxi_as, as)
+maxi_as = max(maxi_as, as)                                                  ! Maximum aspect ration in the mesh
 
 end do
 
