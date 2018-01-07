@@ -18,7 +18,7 @@ program MeshGenerationFramework
 implicit none
 
 !> use <All Mesh Create Modules>
-
+!>Modules by Akshay, Alvaro, Drashti 
 
 !> use <All Mesh Formats Modules>
 use hdf5write !> HDF5 Module
@@ -27,7 +27,7 @@ use hdf5write !> HDF5 Module
 
 
 !> use <All Mesh Analysis Modules>
-
+!>Modules by Damien, Prosun, Ahmed 
 
 print*, 'Welcome to MeshGeneration Framework'
 print*, 'For usage please refer https://github.com/Turbulence-Master/MeshGeneration-Framework/'
@@ -46,9 +46,8 @@ print*, 'Choose the type of mesh' !elaborate
 
 
 
-!> call <Mesh Formats Functions>
-
-print*, 'Choose the mesh format'
+!> call <Mesh Formats Functions> 
+print*, 'Choose the mesh format:'
 print*, 'Enter 1 for HDF5'
 print*, 'Enter 2 for VTK'
 print*, 'Enter 3 for CSV/DAT/BlahBlah'
@@ -58,10 +57,10 @@ if (caseVal==1) then
         call hdfwrite() !> Calling the subroutine to generate mesh in HDF5 format
 elseif (caseVal==2) then
         print*, 'Generating Mesh in VTK format'
-        !> Call all the proper subroutine(s) 
+        !> Call all the proper subroutine(s)  by Bipin and Diana
 elseif (caseVal==3) then
        print*, 'Generating Mesh in DAT/CSV/BlahBlah formats'
-        !> Call all the proper subroutine(s)  
+        !> Call all the proper subroutine(s)   by Bipin and Diana
 else
         print*, 'Unknown value. Default det to generating mesh in HDF5 format'
         print*, 'Generating Mesh in HDF5 format'
@@ -70,7 +69,6 @@ stop
 end if
 
 !> call <Mesh Analysis Functions>
-!> Call all the proper subroutine(s) 
-
+!> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
 end program
