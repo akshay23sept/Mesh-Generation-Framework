@@ -16,7 +16,7 @@
 
 
 module newtonmod
-
+use precision
 contains 
 
 !Subroutine of Newton to be able to establish more points in the local streching.
@@ -32,6 +32,7 @@ integer:: i, j, counter, k, dx, katras, kalante, casos
 allocate(d(N), alfa(N), b(N), xnuevo(dimxnuevo), ynuevo(dimxnuevo), y2nuevo(dimxnuevo))
 do casos=1,2
 if (casos==1) then 
+
 b=y
 else
 b=y2
@@ -114,11 +115,13 @@ d=b
 subroutine chevy(xbig, ybig, zbig, x, y, y2, M, N)
 implicit none
 real::x(:), y(:), y2(:) !, xbig, ybig, zbig
+
 real, allocatable, intent(out):: xbig(:), ybig(:), zbig(:)
 integer, intent(in)::M, N
 real:: dalfa, L, smallalfa
 integer:: i, j, counter
 allocate(xbig(N*M),ybig(N*M),zbig(N*M))
+
 dalfa=(3.14159265)/real((M-1))
 counter=0
 do j=1, N  
@@ -174,12 +177,13 @@ smallx=-2.0
 L=y2(j)-y(j) 
 do i=1,M
 counter=counter+1
-xbig(counter)=x(j)
-ybig(counter)=y(j)+L/2.0+(L/2.0)*tanh(smallx)/tanh(2.0)
-zbig(counter)=1.0
+                xbig(counter)=x(j)
+                        ybig(counter)=y(j)+L/2.0+(L/2.0)*tanh(smallx)/tanh(2.0)
+                                zbig(counter)=1.0
 smallx=smallx+dx
-end do
-end do
+        end do
+                end do
+
 end subroutine tanhip
 
 subroutine linear(xbig, ybig, zbig, x, y, y2, M, N)
