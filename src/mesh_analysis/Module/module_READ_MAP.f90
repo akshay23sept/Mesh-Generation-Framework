@@ -1,5 +1,5 @@
 module READ_MAP
- !\\\\\\\\\\\\\\\\\\\\\\ THIS MODULE CONTAINS A FUNCTION FOR CONFORMAL OF CELLS AND NODES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+ !////////// THIS MODULE CONTAINS A FUNCTION FOR CONFORMAL OF CELLS AND NODES  //////////////////
   type point
     real(8) :: x, y, z
   end type point 
@@ -10,7 +10,7 @@ module READ_MAP
   end type cell 
 
 contains
-!\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ CALLING THE SUBROUTINE FOR READING MESH OUTPUT DATA  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+! CALLING THE SUBROUTINE FOR READING MESH OUTPUT DATA  
 
   subroutine read_data(n1,x,y) 
   implicit none
@@ -28,8 +28,8 @@ contains
   close(99)
   open(99, file=myFileName1, status='old')
   write(*,*)'open data file'
-  read(99, '(I4.4,x,I2.2,x,I1.1)') node_num, element_xtot, element_ytot
-
+!  read(99, '(I4.4,x,I2.2,x,I1.1)') node_num, element_xtot, element_ytot
+  read(99, *) node_num, element_xtot, element_ytot
 !  allocate(n1(node_num))
   allocate(xyz(3,node_num))
 !  allocate(x(node_num))
@@ -55,7 +55,7 @@ print*, node_num, element_xtot, element_ytot
 
  end subroutine read_data
 
-!\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  FUNCTION FOR MAPPING CELLS OF ESSENTIAL NODES  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+!  FUNCTION FOR MAPPING CELLS OF ESSENTIAL NODES  
 
 function cells(node_num,element_xtot,element_ytot) ! takes the total nodes, total nodes in X and Total nodes in Y
 
@@ -75,14 +75,14 @@ function cells(node_num,element_xtot,element_ytot) ! takes the total nodes, tota
 
 call read_data(n, x, y) ! Using the read Module for obtaining the OUTPUT data
 
-!\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  INFORMATION OF X,Y IN EACH NODE  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+!  INFORMATION OF X,Y IN EACH NODE  
 
 do k=1,node_num
 nodexy(k,1)= x(k)
 nodexy(k,2)= y(k)
 end do
 
-!\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  INFORMATION OF NODE IN EACH CELL  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+!  INFORMATION OF NODE IN EACH CELL  
 
 do i=1,element_xtot-1
 do j=1,element_ytot-1

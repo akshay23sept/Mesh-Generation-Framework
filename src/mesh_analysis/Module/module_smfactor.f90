@@ -13,12 +13,12 @@
 !---------------------------------------------------------------------
 !
 
-program smoothness_factor
+module smoothness_factor
 use  READ_MAP 
 use precision
 
-!  contains 
-! subroutine smoo
+  contains 
+ subroutine smoo
 !--------------- Declaration of variables-------------------!
 implicit none 
 real(rk) :: smthf, max_smooth                                  	
@@ -77,5 +77,5 @@ end if
 end do 
 
 print*, smthf
-!  end subroutine smoo
-end program smoothness_factor
+  end subroutine smoo
+end module smoothness_factor

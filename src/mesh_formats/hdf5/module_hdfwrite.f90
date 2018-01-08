@@ -23,10 +23,10 @@ subroutine hdfwrite()
 IMPLICIT NONE
 CHARACTER(LEN=11), PARAMETER :: filename = "mesh.h5" 
 !> File name of the hdf5 file generated
-CHARACTER(LEN=11), PARAMETER :: cordf = "coordinates" , velf = "velocity", pref = "pressure", nodef = "nodes"    
+CHARACTER(LEN=11), PARAMETER :: cordf = "coordinates" , velf = "velocity", pref = "pressure", nodef = "nodes"
 !> Dataset name in which the data will be saved 
 
-INTEGER(HID_T) :: file_1       
+INTEGER(HID_T) :: file_1
 !> File identifier for the file that needs to be generated
 INTEGER(HID_T) :: dset_1, dset_2, dset_3, dset_4       
 !> Dataset identifier for different datasets that is created
@@ -82,78 +82,78 @@ do i = 1, n
  !> node(i) !>, vel(1,i), vel(2,i), vel(3,i), pre(i) 
  !> reading data form the data file and assigning the values
  vel(1,i) = 0
- vel(2,i) = 0 
+ vel(2,i) = 0
  !> allocating 0 for the data sets which can be modified for future use
  vel(3,i) = 0
  pre(i)  = 0
  node(i) = 0
 end do
  close(1) 
-write(*,*)'allocating only coordinates of the nodes and node number '
-CALL h5open_f(error) 
+write(*,*)'allocating only coordinates of the nodes and node number ' 
+CALL h5open_f(error)
 !> initilizing the file
 
-CALL h5fcreate_f(filename, H5F_ACC_TRUNC_F, file_1, error) 
+CALL h5fcreate_f(filename, H5F_ACC_TRUNC_F, file_1, error)
 !> creating the file with default properties
 
-CALL h5screate_simple_f(rank_1, dims_1, dspace_1, error) 
+CALL h5screate_simple_f(rank_1, dims_1, dspace_1, error)
 !> ceating dataspace which stores the information regarding the data set
 
-CALL h5dcreate_f(file_1, cordf, H5T_NATIVE_REAL, dspace_1, dset_1, error) 
+CALL h5dcreate_f(file_1, cordf, H5T_NATIVE_REAL, dspace_1, dset_1, error)
 !> creating data set for cordinates that is required to save the data
-CALL h5screate_simple_f(rank_2, dims_2, dspace_2, error)
+CALL h5screate_simple_f(rank_2, dims_2, dspace_2, error) 
 
-CALL h5dcreate_f(file_1, velf, H5T_NATIVE_REAL, dspace_2, dset_2, error) 
+CALL h5dcreate_f(file_1, velf, H5T_NATIVE_REAL, dspace_2, dset_2, error)
 !> other data sets are created for future use 
 
 CALL h5screate_simple_f(rank_3, dims_3, dspace_3, error)
 
-CALL h5dcreate_f(file_1, pref, H5T_NATIVE_REAL, dspace_3, dset_3, error) 
+CALL h5dcreate_f(file_1, pref, H5T_NATIVE_REAL, dspace_3, dset_3, error)
 !> other data sets are created for future use
 
 CALL h5screate_simple_f(rank_4, dims_4, dspace_4, error)
 
-CALL h5dcreate_f(file_1, nodef, H5T_NATIVE_INTEGER, dspace_4, dset_4, error) 
+CALL h5dcreate_f(file_1, nodef, H5T_NATIVE_INTEGER, dspace_4, dset_4, error)
 !> creating data set for node numbers that needs to be saved that is required to save the data
 
 
 
 dims_1(1:2) = (/3, n/) 
 !> assigning the size of the data set that needs to be written
-CALL h5dwrite_f(dset_1, H5T_NATIVE_REAL, cord, dims_1, error) 
-!> writing the coordinate data to the file
+CALL h5dwrite_f(dset_1, H5T_NATIVE_REAL, cord, dims_1, error)
+!> writing the coordinate data to the file 
 
-dims_2(1:2) = (/3, n/) 
-CALL h5dwrite_f(dset_2, H5T_NATIVE_REAL, vel, dims_2, error) 
-!> other data sets are created for future use
+dims_2(1:2) = (/3, n/)
+CALL h5dwrite_f(dset_2, H5T_NATIVE_REAL, vel, dims_2, error)
+!> other data sets are created for future use 
 
-dims_3(1) = n
-CALL h5dwrite_f(dset_3, H5T_NATIVE_REAL, pre, dims_3, error) 
-!> other data sets are created for future use
+dims_3(1) = n 
+CALL h5dwrite_f(dset_3, H5T_NATIVE_REAL, pre, dims_3, error)
+!> other data sets are created for future use 
 
-dims_4(1) = n 
-CALL h5dwrite_f(dset_4, H5T_NATIVE_INTEGER, node, dims_4, error) 
-!> write node number data to the file
+dims_4(1) = n
+CALL h5dwrite_f(dset_4, H5T_NATIVE_INTEGER, node, dims_4, error)
+!> write node number data to the file 
 
 
-CALL h5dclose_f(dset_1, error)
+CALL h5dclose_f(dset_1, error) 
 !> closing the data space which limits the modification of size of the data 
-CALL h5dclose_f(dset_2, error)
-CALL h5dclose_f(dset_3, error)
-CALL h5dclose_f(dset_4, error)
+CALL h5dclose_f(dset_2, error)  
+CALL h5dclose_f(dset_3, error)  
+CALL h5dclose_f(dset_4, error)  
 
-CALL h5sclose_f(dspace_1, error)
-!> closing the dataset which limits the writing permission 
-CALL h5sclose_f(dspace_2, error)
-CALL h5sclose_f(dspace_3, error)
-CALL h5sclose_f(dspace_4, error)
+CALL h5sclose_f(dspace_1, error)  
+!> closing the dataset which limits the writing permission  
+CALL h5sclose_f(dspace_2, error)  
+CALL h5sclose_f(dspace_3, error)  
+CALL h5sclose_f(dspace_4, error)  
 
-CALL h5fclose_f(file_1, error) 
-!> closing the generated file 
+CALL h5fclose_f(file_1, error)  
+!> closing the generated file  
 
 CALL h5close_f(error) 
-!> ending the fortran interface 
-end subroutine hdfwrite
-!> end of subroution
-end module hdf5write 
-!> end of module
+!> ending the fortran interface  
+end subroutine hdfwrite  
+!> end of subroution  
+end module hdf5write  
+!> end of module  
