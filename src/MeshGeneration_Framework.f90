@@ -52,6 +52,7 @@ print*, '#######################################################################
 
 !> call <Mesh Create Functions>
 print*, 'Choose the type of mesh' !elaborate
+subroutine raw_mesh ()
 !write the switch case here
 !include Alvaro's subroutine(nozzle) as
 !include Drashti's subroutine(rectangular) as case 2
