@@ -1,7 +1,7 @@
 module skewness_1cell
   contains 
 
-  subroutine File_Skewness(myFileName1)
+  subroutine File_Skewness
   use  READ_MAP    
   use precision
 
@@ -13,7 +13,7 @@ module skewness_1cell
   real(rk) :: alpha, beta, gamma_                         ! value of the angles 
   integer(ik) :: k                                        ! Cell number
   character(len=30) :: datafile                           ! Data file for the result
-  character(len=20), parameter :: myFileName1             ! in order to include Drashti's mapping
+  character(len=20), parameter :: myFileName1='raw_mesh.dat'             ! in order to include Drashti's mapping
   integer(ik) :: node_num, element_xtot, element_ytot     ! in order to include Drashti's mapping
   type(cell), allocatable :: map1(:)                      ! Vector containing all the cells (in order to simplify the code == no breaking column)
   integer :: i,n
