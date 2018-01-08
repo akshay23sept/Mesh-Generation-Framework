@@ -53,6 +53,7 @@ print*, '#######################################################################
 
 !> call <Mesh Create Functions>
 print*, 'Choose the type of mesh' !elaborate
+subroutine raw_mesh ()
 !write the switch case here
 !include Alvaro's subroutine(nozzle) as
 !include Drashti's subroutine(rectangular) as case 2
@@ -84,6 +85,21 @@ stop
 end if
 !> call subroutine test1
 !> call <Mesh Analysis Functions>
+<<<<<<< HEAD
+=======
+  print*, 'Do you want to analyze the mesh? [y/n]
+  read*, answer
+
+  if (answer == y) then 
+    call File_Skewness
+    call test1(maxi_as)
+    print*, 'done: find the sum up in results_skewness.dat result_ar.dat'
+  elseif (answer == n) then 
+    print*, 'done'
+  else 
+    print*, 'Unknown value... done'
+  end if
+>>>>>>> 33074bd9fcdb3ae8af3dae8b429d0ad52a05a586
 !> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
 end program
