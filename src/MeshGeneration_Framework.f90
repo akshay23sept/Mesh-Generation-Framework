@@ -16,11 +16,7 @@
 program MeshGenerationFramework
 
 implicit none
-<<<<<<< HEAD
 !======================================================================================================================================
-=======
-  
->>>>>>> 66cafd04b0d208fa821b268eee533377654f644d
 !> use <All Mesh Create Modules>
 !>Modules by Akshay, Alvaro and Drashti 
 
@@ -45,7 +41,6 @@ use hdf5write !> HDF5 Module
 
 !==========================================================================================================================================
 !> use <All Mesh Analysis Modules>
-use skewness_1cell
 !>Modules by Damien, Prosun, Ahmed 
 !==========================================================================================================================================
 print*, 'Welcome to MeshGeneration Framework'
@@ -88,21 +83,6 @@ stop
 end if
 
 !> call <Mesh Analysis Functions>
-
-print*, 'Do you want to analyse your mesh? [y/n]'
-read*, answer
-if (answer == 'y') then 
-  call File_Skewness
-  !>call the subroutine to generate skewness_file and print the maximum skewness
-  print*, ''
-  print*, 'done: sum up available > results_skewness.dat'
-elseif (answer == 'n') then 
-  print*, 'done'
-else
-  print*, 'Unknown value'
-  print*, 'done'
-end if
-
 !> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
 end program
