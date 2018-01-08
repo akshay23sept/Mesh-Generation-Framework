@@ -41,7 +41,11 @@ use hdf5write !> HDF5 Module
 
 !==========================================================================================================================================
 !> use <All Mesh Analysis Modules>
+<<<<<<< HEAD
 !> use as_ratio_module
+=======
+  use skewness_1cell
+>>>>>>> 0b670704f88c32399c8521c175beb2dc04c0852f
 !>Modules by Damien, Prosun, Ahmed 
 !==========================================================================================================================================
 print*, 'Welcome to MeshGeneration Framework'
@@ -84,6 +88,17 @@ stop
 end if
 !> call my subroutine test1
 !> call <Mesh Analysis Functions>
+  print*, 'Do you want to analyze the mesh? [y/n]
+  read*, answer
+
+  if (answer == y) then 
+    call File_Skewness
+    print*, 'done: find the sum up in results_skewness.dat'
+  elseif (answer == n) then 
+    print*, 'done'
+  else 
+    print*, 'Unknown value... done'
+  end if
 !> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
 end program

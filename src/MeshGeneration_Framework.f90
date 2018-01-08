@@ -41,7 +41,7 @@ use hdf5write !> HDF5 Module
 
 !==========================================================================================================================================
 !> use <All Mesh Analysis Modules>
-!> use as_ratio_module
+!> use module_as_ratio
 !>Modules by Damien, Prosun, Ahmed 
 !==========================================================================================================================================
 print*, 'Welcome to MeshGeneration Framework'
@@ -82,7 +82,7 @@ else
         call hdfwrite() !> Calling the subroutine to generate mesh in HDF5 format
 stop
 end if
-!> call my subroutine test1
+!> call subroutine test1
 !> call <Mesh Analysis Functions>
 !> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
