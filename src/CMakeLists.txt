@@ -14,11 +14,11 @@ ADD_LIBRARY(${PREC} STATIC precision.f90 )
 
 # class hdffile
 SET(HDFFILE hdffile)
-<<<<<<< HEAD
-ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/module_hdf5write.f90)
-=======
+
+#ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/module_hdf5write.f90)
+
 ADD_LIBRARY(${HDFFILE} STATIC mesh_formats/hdf5/module_hdfwrite.f90)
->>>>>>> 1103e47acf8ea62db0de960aac0d865a91e255d6
+
 target_link_libraries(${HDFFILE} ${PREC} ${HDF5lib})
 
 

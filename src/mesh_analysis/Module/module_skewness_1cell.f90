@@ -1,6 +1,6 @@
 module skewness_1cell
   contains 
-  subroutine File_Skewness(myFileName)
+  subroutine File_Skewness(myFileName1)
   use  READ_MAP 
   use precision
 
