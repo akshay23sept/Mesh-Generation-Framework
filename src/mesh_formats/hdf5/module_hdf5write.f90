@@ -54,7 +54,8 @@ REAL(rk), allocatable :: cord(:,:), vel(:,:), pre(:)
 !> defining the arrays of the data that needs to saved
 INTEGER(ik), allocatable :: node(:)
 write(*,*)'opening the data file'
-open(1, file="../../mesh_create/meshing_alvaro/puntosmalla.dat", status='old', action='read') 
+open(1, file="raw_mesh.dat", status='old', action='read') 
+!open(1, file="../../mesh_create/meshing_alvaro/raw_mesh.dat", status='old', action='read') 
 !> reading the size of the data points form the file generated during mesg generation
   write(*,*)'reading the size of the array that needs to be created'
   read(1, *) n
