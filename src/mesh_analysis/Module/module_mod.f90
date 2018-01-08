@@ -15,10 +15,12 @@
 
 
 module rat
-type point 
-    real(8) :: x,y
-  end type point
 
+!type point 
+!    real(8) :: x,y
+!  end type point
+! No calling of type point here. In case you need it: copy past use READ_MAP 
+! and you can use the following type point : type(Point) real(8) :: x,y,z end type(point)
 contains
 subroutine grid
 implicit none

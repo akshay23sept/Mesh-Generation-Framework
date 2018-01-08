@@ -13,7 +13,7 @@
 !---------------------------------------------------------------------
 !
 
-program smoothness
+module smoothness
 use rat
 implicit none
 integer,parameter :: n=3
@@ -51,4 +51,4 @@ print*, smth
 end do
 end do
 print*, L
-end program smoothness
+end module smoothness
