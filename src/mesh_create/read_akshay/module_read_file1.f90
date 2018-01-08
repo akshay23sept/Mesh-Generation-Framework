@@ -1,4 +1,4 @@
-module read_file_module
+module read_file1_module
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -94,7 +94,7 @@ read(99,*) N
    end subroutine read_file
 !>This is the closing statemnt for the subroutine & it must be the same that we defined in begining . 
 
-end module read_file_module
+end module read_file1_module
 !> end of the module.
 
 

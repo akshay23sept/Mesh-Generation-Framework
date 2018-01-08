@@ -16,19 +16,33 @@
 program MeshGenerationFramework
 
 implicit none
-
+!======================================================================================================================================
 !> use <All Mesh Create Modules>
-!>Modules by Akshay, Alvaro, Drashti 
+!>Modules by Akshay, Alvaro and Drashti 
 
+use precision
+use newtonmod
+!> Newtonmod module for local strecthing
+use read_file_module
+!>Read Module to take the value from user and insert it into variables  !>this read module operates in (case1) nozzle
+use read_file1_module
+!>Read Module to take the value from user and insert it into variables  !>this read module operates in (case2) rectangular
+use mesh
+!> A module that will integrate the all the modules and provide the desired output.
+!=========================================================================================================================================
+
+!=========================================================================================================================================
 !> use <All Mesh Formats Modules>
 use hdf5write !> HDF5 Module
  !>VTK Module
  !>DAT/CSV/BlahBlah Module(s) 
 
+!==========================================================================================================================================
 
+!==========================================================================================================================================
 !> use <All Mesh Analysis Modules>
 !>Modules by Damien, Prosun, Ahmed 
-
+!==========================================================================================================================================
 print*, 'Welcome to MeshGeneration Framework'
 print*, 'For usage please refer https://github.com/Turbulence-Master/MeshGeneration-Framework/'
 print*, 'Complete documentation can be found at https://turbulence-master.github.io/'
