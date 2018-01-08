@@ -9,11 +9,10 @@
   implicit none
 ! IMPLICIT NONE
   real(8) :: p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z 
-! 3 positions of 4 points P(x,y,z) 'the coordinate' of every cell                   
+! 3 components of 4 points P(x,y,z) 'the coordinate' of every cell                   
   real(8) :: as, p1p2, p2p3, p3p4, p4p1
 ! the 4  lengths of the cell                                         
   integer :: N
-
   integer :: k,i  
 ! k is the Cell number, I is the vraiable of the loop                                                     
   real(8), intent(out) :: maxi_as 
@@ -42,25 +41,41 @@
 ! read (1,*) k,p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                   ! import the data of points from the data file
 
     P1 = map1(i)%P1
+!   first point of every cell in the mesh
     P2 = map1(i)%P2
+!   second point of every cell in the mesh
     P3 = map1(i)%P3
+!   third point of every cell in the mesh
     P4 = map1(i)%P4
+!   fourth point of every cell in the mesh
     
     p1x = P1%x
+!   X- component of first point of every cell
     p1y = P1%y
+!   Y- component of first point of every cell
     p1z = P1%z
+!   Z- component of first point of every cell
     
     p2x = P2%x
+!   X- component of second point of every cell
     p2y = P2%y
+!   Y- component of second point of every cell
     p2z = P2%z
+!   Z- component of second point of every cell
 
     p3x = P3%x
+!   X- component of third point of every cell
     p3y = P3%y
+!   Y- component of third point of every cell
     p3z = P3%z
+!   Z- component of third point of every cell
 
     p4x = P4%x
+!   X- component of fourth point of every cell
     p4y = P4%y
+!   Y- component of fourth point of every cell
     p4z = P4%z
+!   Z- component of fourth point of every cell
                           !//////////////////////////////////////////////////////////////////
 
     p1p2=(((p2x-p1x)**2)+(((p2y-p1y)**2))+(((p2z-p1z)**2)))**0.5
@@ -82,7 +97,9 @@
   end do
 
 
- close(99)
-end subroutine test1
+   close(99)
+!  close the data file
+  end subroutine test1
+! end subroutine test1
+  end module ratio
 
-end module ratio
