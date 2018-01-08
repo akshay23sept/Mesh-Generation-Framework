@@ -20,9 +20,9 @@ file(GLOB mod_file Module/*.f90)  # In order to create a group containing all th
 SET(HEADER Module)
 ADD_LIBRARY(${HEADER} STATIC ${mod_file})  # I called ${mod} instead of the list of every module in module-folder
 
-SET(MAIN Main)  # From main folder
-ADD_EXECUTABLE(${MAIN} Main/main.f90)
-target_link_libraries(${MAIN} ${HEADER})  # In order to use Module inside main programs
+#SET(MAIN Main)  # From main folder
+#ADD_EXECUTABLE(${MAIN} Main/main.f90)
+#target_link_libraries(${MAIN} ${HEADER})  # In order to use Module inside main programs
 
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/${MAIN}
   DESTINATION bin

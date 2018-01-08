@@ -53,6 +53,7 @@ print*, '#######################################################################
 
 
 !> call <Mesh Create Functions>
+<<<<<<< HEAD
 print*, 'Choose the type of mesh : 1 for Nozzle, 2 for Rectangle and any other input will exit ' 
 read*, choice
 if (choice ==1) then
@@ -63,6 +64,17 @@ call rectmesh()
 !> rectmesh subroutine uses read_file1 subroutine 
 else
 print*, 'Invalid input , so you will exit from the program'
+=======
+print*, 'Choose the type of mesh' !elaborate
+subroutine raw_mesh ()
+!write the switch case here
+!include Alvaro's subroutine(nozzle) as
+!include Drashti's subroutine(rectangular) as case 2
+
+!> Call all the proper subroutine(s) 
+
+
+>>>>>>> 4503e0f876244ccb2e677e4ebc767cb2195fbd9f
 
 !> call <Mesh Formats Functions> 
 print*, 'Choose the mesh format:'
@@ -92,7 +104,8 @@ end if
 
   if (answer == y) then 
     call File_Skewness
-    print*, 'done: find the sum up in results_skewness.dat'
+    call test1(maxi_as)
+    print*, 'done: find the sum up in results_skewness.dat result_ar.dat'
   elseif (answer == n) then 
     print*, 'done'
   else 
