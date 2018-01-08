@@ -14,6 +14,7 @@ module ratio
   integer :: k,i                                                       
   real(8), intent(out) :: maxi_as                                               ! the maximum as for all cells 
   character(len=30) :: testfile
+  character(len=20) :: result_file
   ! Under is the vector containing the cells 
   type(cell), allocatable :: map1(:)
   type(point) :: P1, P2, P3, P4
@@ -21,8 +22,9 @@ module ratio
 
 
   testfile = 'raw_mesh.dat'
-
+  result_file = 'result_ar.dat'
   open(99,file=testfile)
+  open(98, file=result_file)
   READ(99,*) node_num,element_xtot,element_ytot                                  ! import the number of cells from the data file    
   maxi_as = 0                                                                   ! initial aspect ratio
 
@@ -64,12 +66,13 @@ module ratio
     as=(max(p1p2,p2p3,p3p4,p4p1))/(min(p1p2,p2p3,p3p4,p4p1))                    ! the aspect ratio of every cell
     
     maxi_as = max(maxi_as, as)                                                  ! Maximum aspect ration in the mesh
-
-print*, P1, P2, P3, P4
+    print(98,*) i, as
+!print*, P1, P2, P3, P4
   end do
 
 
  close(99)
+ close(98)
 end subroutine test1
 
 end module ratio

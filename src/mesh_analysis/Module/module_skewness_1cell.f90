@@ -3,7 +3,7 @@ module skewness_1cell
 
   subroutine File_Skewness
 !> Subroutine which creates sum-up file and print maximum skewness for the file raw_mesh.dat
-  use  READ_MAP    
+  use  module_getcells   
 !> Use the module to create the cells 
   use precision
 !> Precision module

@@ -25,7 +25,7 @@ contains
 
    
 
-        subroutine read_file (filepoints,x,y)
+        subroutine read_file (filepoints,x,y,N,M)
 
 
         use precision
