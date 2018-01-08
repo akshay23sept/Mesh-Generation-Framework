@@ -1,26 +1,7 @@
-program csv_read
+module csv_read
 use csv_write
+use precision
  implicit none
-
-!>This main program creates csv format files
-
-  call timestamp ( ) !>Calling the time stamp subroutine
-  write ( *, '(a)' ) ' '
-  write ( *, '(a)' ) 'dat_IO_PRB'
-  write ( *, '(a)' ) '  FORTRAN90 version'
-  write ( *, '(a)' ) '  Test the VTK_IO library.'
-	
-  call test01 ( ) !>Calling the subroutine that writes pressure and velocity for 3D fluid flow calculation
-!
-!  Terminate.
-!
-  write ( *, '(a)' ) ' '
-  write ( *, '(a)' ) 'dat_IO_PRB'
-  write ( *, '(a)' ) '  Normal end of execution.'
-  write ( *, '(a)' ) ' '
-  call timestamp ( ) !timestamp to mention the time of execution
-
-  stop
 
 contains
 subroutine test01 ( ) !>To tests the csv_puwn_write subroutine that writes pressure and velocity for a 3D fluid flow calculation.
@@ -41,10 +22,12 @@ subroutine test01 ( ) !>To tests the csv_puwn_write subroutine that writes press
   write ( *, '(a)' ) '  .dat_WRITE writes 3d fluid data, pressure and '
   write ( *, '(a)' ) '  velocity, to a .dat file.'
 
-  myFileName1='raw_mesh.dat' !>Create the points mesh file in .dat
 
-  open(99, file=myFileName1)
-  write(*,*)'open data file'
+  myFileName1='raw_mesh.dat' !>Create the points mesh file
+
+  open(98, file=myFileName1)
+  !>Takes points from generated mesh 
+ write(*,*)'open data file'
   read(99, *) node_num,element_num,element_order
 
   allocate(n(node_num))     !>Allocate the correspondent number at: Total number of nodes for the mesh
