@@ -89,7 +89,8 @@ end if
 
   if (answer == y) then 
     call File_Skewness
-    print*, 'done: find the sum up in results_skewness.dat'
+    call test1(maxi_as)
+    print*, 'done: find the sum up in results_skewness.dat result_ar.dat'
   elseif (answer == n) then 
     print*, 'done'
   else 
