@@ -16,7 +16,7 @@ module module_rectmesh
 !> This module generates a mesh for any Rectangular Geometry
 use precision
 !> The precision module is used to define the precision of the variables
-use read_file_module
+use read_file1_module
 !> the read module is used to read co-ordinates (input) of Gemoetry
 implicit none
 contains
@@ -111,6 +111,7 @@ iter=iter+1
 !> incrementing the iterations
 print*, 'Node',iter,  'px', px(o,r), '  py',py(o,r), 'pz' ,z1(iter), 'u',z1(iter), 'v',z1(iter), 'w',z1(iter)
 !> Printing output
+write (11,*) M1*N1, M1, N1
 write(11,*) iter,   px(o,r), py(o,r), z1(iter), z1(iter), z1(iter), z1(iter)
 !> Writing output into the designated file
 end do
