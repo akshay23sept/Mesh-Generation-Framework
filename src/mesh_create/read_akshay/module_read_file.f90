@@ -6,10 +6,10 @@
 
 !
 !> @author
-!> Akshay
+!> Akshay Anand
 !
-! DESCRIPTION: 
-!> This is a module that read the data from a file and introduce it in the variables  
+!> DESCRIPTION: 
+!> This is a module that read the data from a file and introduce it in the variables. This is a module that read the data from a file and introduce it in the variables    
 !---------------------------------------------------------------------
 !
 
@@ -31,6 +31,16 @@ module read_file_module
 contains
 
    
+<<<<<<< HEAD
+                               !> Calling a subroutine for reading the data 
+        subroutine read_file (filepuntos,x,y,y2,N)
+                        integer ::N
+                        !>N is number of something
+                        integer ::i,counter
+                        !> i is counter
+                        character(len=20)::filepuntos
+                        real,allocatable::x(:), y(:), y2(:) 
+=======
 
         subroutine read_file (filepuntos,x,y,y2,N)
 
@@ -60,6 +70,7 @@ contains
 
             real,allocatable:: y2(:) 
                                        !> and y2 is also the coordinates
+>>>>>>> b3f0b8c4a181e9b08148d0daa1cd60916ca639d1
         
 
                         real,allocatable :: d(:), c(:), alfa(:), b(:)
@@ -110,6 +121,9 @@ counter=0
 
 end module read_file_module
 
+<<<<<<< HEAD
+!>Compile using  // gfortran -c read_file.f90
+=======
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -121,3 +135,4 @@ end module read_file_module
 !>Compile using       gfortran test.f90 read_file.o -o read.exe 
  
 !>Run using   ./test.exe  
+>>>>>>> b3f0b8c4a181e9b08148d0daa1cd60916ca639d1

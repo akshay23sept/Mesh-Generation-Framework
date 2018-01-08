@@ -9,7 +9,7 @@ var indexSectionsWithContent =
 {
   0: "cdfghimnprtv",
   1: "cdfhnprtv",
-  2: "dgitv",
+  2: "dgirtv",
   3: "dm"
 };
 

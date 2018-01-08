@@ -7,7 +7,7 @@
 !> @author
 !> Roy Prosun
 !
-! DESCRIPTION: 
+!> DESCRIPTION: 
 !>  To Reckon the Smoothness of a given mesh
 !
 !---------------------------------------------------------------------
@@ -21,12 +21,18 @@ use precision
 ! subroutine smoo
 !--------------- Declaration of variables-------------------!
 implicit none 
-real(rk) :: smthf, max_smooth                                  	! value of smoothness of the mentioned grid and its max value
-integer(ik) :: k                                         	! number of cell
-character(len=20) :: datafile                            	! test data file
-character(len=20) :: myFileName1                         	! To consider Drashti's mapping module
-integer(ik) :: node_num, element_xtot, element_ytot     	! To consider Drashti's mapping module
-real(8), allocatable :: map1 (:,:,:)                        	! Vectors in all cells
+real(rk) :: smthf, max_smooth                                  	
+!> value of smoothness of the mentioned grid and its max value
+integer(ik) :: k                                         	
+!> number of cell
+character(len=20) :: datafile                            	
+!> test data file
+character(len=20) :: myFileName1                         	
+!> To consider Drashti's mapping module
+integer(ik) :: node_num, element_xtot, element_ytot     	
+!> To consider Drashti's mapping module
+real(8), allocatable :: map1 (:,:,:)                        	
+!> Vectors in all cells
 integer :: i
 integer,parameter :: n=3 
 !-----------------------Define a type point ----------------------------!
