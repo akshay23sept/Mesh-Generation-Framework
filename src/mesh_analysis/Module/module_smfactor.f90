@@ -55,7 +55,7 @@ map1 = map1(node_num,element_xtot,element_ytot)  		!it is indicating that all th
 
 
 !---------------------In order to executing my Test -----------------------!
-datafile = 'data.dat' !'data_point_cell.dat'
+datafile = 'data.dat' 		!'data_point_cell.dat'
 open(1, file = datafile, status = 'old') 
 read(1, *) k, P_1%x, P_1%y, P_1%z, P_2%x, P_2%y, P_2%z, P_3%x, P_3%y, P_3%z, P_4%x, P_4%y, P_4%z
   
