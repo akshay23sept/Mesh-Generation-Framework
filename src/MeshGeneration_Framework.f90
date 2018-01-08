@@ -58,10 +58,10 @@ print*, 'Choose the type of mesh : 1 for Nozzle, 2 for Rectangle and any other i
 read*, choice
 if (choice ==1) then
 call raw_mesh()
-!> raw_mesh subroutine uses read_file subroutine and newton subroutine 
+!> raw_mesh subroutine uses read_file subroutine and newton subroutine from the respective modules
 else (choice ==2) then
 call rectmesh()
-!> rectmesh subroutine uses read_file1 subroutine 
+!> rectmesh subroutine uses read_file subroutine from the respective modules
 else
 print*, 'Invalid input , so you will exit from the program'
 =======

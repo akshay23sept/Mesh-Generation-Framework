@@ -103,6 +103,8 @@ meshoutput ='raw_mesh.data'
  print*, ' ---------------------------- OUTPUT : MESH POINTS ------------------------------------'
 iter=0
 !> Iteration for loop to prit thr Arrays
+write (11,*) M1*N1, M1, N1
+!> we wrte the total nodes, total points in x and total points in y in the data output file
 do r=0, N+1
 !> First do loop writing/printing 2D arrays
 do o=0, M+1
@@ -111,7 +113,6 @@ iter=iter+1
 !> incrementing the iterations
 print*, 'Node',iter,  'px', px(o,r), '  py',py(o,r), 'pz' ,z1(iter), 'u',z1(iter), 'v',z1(iter), 'w',z1(iter)
 !> Printing output
-write (11,*) M1*N1, M1, N1
 write(11,*) iter,   px(o,r), py(o,r), z1(iter), z1(iter), z1(iter), z1(iter)
 !> Writing output into the designated file
 end do
