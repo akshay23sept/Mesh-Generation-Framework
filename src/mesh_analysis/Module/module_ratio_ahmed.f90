@@ -1,11 +1,14 @@
 module ratio
 
   contains
-
-  subroutine test1 (maxi_as)
+! contains
+  subroutine test1(maxi_as)
+! call the subroutine 
   use READ_MAP
   implicit none
-  real(8) :: p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                    ! 4 points P(x,y,z) 'the coordinate' of every cell
+! implicit none
+  real(8) :: p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                    
+! 4 points P(x,y,z) 'the coordinate' of every cell
   real(8) :: as, p1p2, p2p3, p3p4, p4p1                                         ! the 4  lengths of the cell
   integer :: N
   integer :: k,i                                                       
