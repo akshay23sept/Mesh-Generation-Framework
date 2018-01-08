@@ -42,7 +42,13 @@ use hdf5write !> HDF5 Module
 
 !==========================================================================================================================================
 !> use <All Mesh Analysis Modules>
+<<<<<<< HEAD
+  use skewness_1cell
+  use ratio
+  use smoothness_factor
+=======
 !> use module_as_ratio
+>>>>>>> d6aa5bc2d96865f672477be66d471e631d8426d2
 !>Modules by Damien, Prosun, Ahmed 
 !==========================================================================================================================================
 print*, 'Welcome to MeshGeneration Framework'
@@ -53,15 +59,15 @@ print*, '#######################################################################
 
 
 !> call <Mesh Create Functions>
-<<<<<<< HEAD
+
 print*, 'Choose the type of mesh : 1 for Nozzle, 2 for Rectangle and any other input will exit ' 
 read*, choice
 if (choice ==1) then
 call raw_mesh()
-!> raw_mesh subroutine uses read_file subroutine and newton subroutine from the respective modules
+!> raw_mesh subroutine uses read_file subroutine and newton subroutine 
 else (choice ==2) then
 call rectmesh()
-!> rectmesh subroutine uses read_file subroutine from the respective modules
+!> rectmesh subroutine uses read_file1 subroutine 
 else
 print*, 'Invalid input , so you will exit from the program'
 =======
@@ -73,8 +79,6 @@ subroutine raw_mesh ()
 
 !> Call all the proper subroutine(s) 
 
-
->>>>>>> 4503e0f876244ccb2e677e4ebc767cb2195fbd9f
 
 !> call <Mesh Formats Functions> 
 print*, 'Choose the mesh format:'
@@ -99,21 +103,21 @@ stop
 end if
 !> call subroutine test1
 !> call <Mesh Analysis Functions>
-<<<<<<< HEAD
-=======
+
   print*, 'Do you want to analyze the mesh? [y/n]
   read*, answer
 
   if (answer == y) then 
     call File_Skewness
     call test1(maxi_as)
+    call smoo
     print*, 'done: find the sum up in results_skewness.dat result_ar.dat'
   elseif (answer == n) then 
     print*, 'done'
   else 
     print*, 'Unknown value... done'
   end if
->>>>>>> 33074bd9fcdb3ae8af3dae8b429d0ad52a05a586
+
 !> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
 end program
