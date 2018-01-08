@@ -63,7 +63,7 @@ else (choice ==2) then
 call rectmesh()
 !> rectmesh subroutine uses read_file1 subroutine 
 else
-print*, 'Invalid input , so you will exit from the program'
+print*, 'Invalid input , so you will (have to!) exit from the program'
 =======
 print*, 'Choose the type of mesh' !elaborate
 subroutine raw_mesh ()
@@ -74,7 +74,7 @@ subroutine raw_mesh ()
 !> Call all the proper subroutine(s) 
 
 
->>>>>>> 4503e0f876244ccb2e677e4ebc767cb2195fbd9f
+!>>>>>>> 4503e0f876244ccb2e677e4ebc767cb2195fbd9f (what is this? @drashti-volarSomething)
 
 !> call <Mesh Formats Functions> 
 print*, 'Choose the mesh format:'
