@@ -4,9 +4,8 @@
 # Its just a Test
 
 cmake_minimum_required(VERSION 3.5) # Usefull only for the first CMakeLists.txt
-
-# Declaration of the project 
- project(MyProject) # Change the name on purpose 
+#Declaration of project 
+project(MyProject) # Change the name on purpose 
 enable_language(Fortran)
 
 SET(CMAKE_BUILD_TYPE Release)
@@ -22,10 +21,5 @@ ADD_LIBRARY(${HEADER} STATIC ${mod_file})  # calling ${mod} instead of the list 
 #target_link_libraries(${MAIN} ${HEADER})  # In order to use Module inside main programs
 
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/${MAIN}
-  DESTINATION bin
+DESTINATION bin
 RENAME ${CMAKE_PROJECT_NAME}-main)
- cmake_minimum_required(VERSION 3.5) # Usefull only for the first CMakeLists.txt
-
-# Declaration of the project 
-project(MyProject) # Change the name on purpose 
-enable_language(Fortran)
