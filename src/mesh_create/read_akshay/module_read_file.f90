@@ -71,7 +71,7 @@ contains
 
             real,allocatable:: y2(:) 
                                        !> and y2 is also the coordinates
->>>>>>> b3f0b8c4a181e9b08148d0daa1cd60916ca639d1
+
         
 
                         real,allocatable :: d(:), c(:), alfa(:), b(:)
