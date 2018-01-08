@@ -1,5 +1,5 @@
 program skewness_1cell
-  use  READ_MAP 
+  use  module_getcells
   use precision
 
 !  contains 
