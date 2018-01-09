@@ -4,7 +4,7 @@ module ratio
 ! contains
   subroutine test1(maxi_as)
 ! call the subroutine 
-  use READ_MAP
+  use module_getcells
   implicit none
 ! implicit none
   real(8) :: p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                    
