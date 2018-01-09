@@ -4,7 +4,7 @@
 ! contains
   subroutine test1(maxi_as)
 ! subroutine test1 to get the 4 points (4 corners) of every cell
-  use READ_MAP
+  use module_getcells
 ! READ_MAP is the MODULE CONTAINS A FUNCTION FOR CONFORMAL OF CELLS AND NODES
   implicit none
 ! IMPLICIT NONE
