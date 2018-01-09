@@ -14,7 +14,7 @@
 !
 
 module smoothness_factor
-use  READ_MAP 
+use  module_getcells
 use precision
 
   contains 
