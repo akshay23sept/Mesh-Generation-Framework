@@ -14,7 +14,9 @@
 
 
 module rat
-
+type point 
+    real(8) :: x,y
+end type point
 contains
 subroutine grid
 implicit none
