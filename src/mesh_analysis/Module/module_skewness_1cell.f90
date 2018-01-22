@@ -46,7 +46,7 @@ module skewness_1cell
   open(98, file=datafile)                                                                        
 
   allocate(map1((element_xtot-1)*(element_ytot-1)))
-  map1 = cells(node_num,element_xtot,element_ytot)  Now I have the vector containing all the cells 
+  map1 = cells(node_num,element_xtot,element_ytot)  !Now I have the vector containing all the cells 
 
   max_skewness = 0
 !> initialization for the max_skewness
