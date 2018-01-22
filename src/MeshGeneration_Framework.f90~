@@ -29,6 +29,7 @@ use read_file1_module
 !>Read Module to take the value from user and insert it into variables  !>this read module operates in (case2) rectangular
 use mesh
 !> A module that will integrate the all the modules and provide the desired output.
+use module_rectmesh
 !=========================================================================================================================================
 
 !=========================================================================================================================================
@@ -42,10 +43,13 @@ use hdf5write !> HDF5 Module
 !==========================================================================================================================================
 !> use <All Mesh Analysis Modules>
 <<<<<<< HEAD
-!> use as_ratio_module
-=======
+  use module_getcells
   use skewness_1cell
->>>>>>> 0b670704f88c32399c8521c175beb2dc04c0852f
+  use ratio
+  use smoothness_factor
+=======
+!> use module_as_ratio
+>>>>>>> d6aa5bc2d96865f672477be66d471e631d8426d2
 !>Modules by Damien, Prosun, Ahmed 
 !==========================================================================================================================================
 print*, 'Welcome to MeshGeneration Framework'
@@ -56,7 +60,20 @@ print*, '#######################################################################
 
 
 !> call <Mesh Create Functions>
+
+print*, 'Choose the type of mesh : 1 for Nozzle, 2 for Rectangle and any other input will exit ' 
+read*, choice
+if (choice ==1) then
+call raw_mesh()
+!> raw_mesh subroutine uses read_file subroutine and newton subroutine 
+else (choice ==2) then
+call rectmesh()
+!> rectmesh subroutine uses read_file1 subroutine 
+else
+print*, 'Invalid input , so you will (have to!) exit from the program'
+=======
 print*, 'Choose the type of mesh' !elaborate
+subroutine raw_mesh ()
 !write the switch case here
 !include Alvaro's subroutine(nozzle) as
 !include Drashti's subroutine(rectangular) as case 2
@@ -64,7 +81,11 @@ print*, 'Choose the type of mesh' !elaborate
 !> Call all the proper subroutine(s) 
 
 
+<<<<<<< HEAD
+!>>>>>>> 4503e0f876244ccb2e677e4ebc767cb2195fbd9f (what is this? @drashti-volarSomething)
 
+=======
+>>>>>>> 58e3b6bd41c0bcd9213d0b62146e46cbf672acbd
 !> call <Mesh Formats Functions> 
 print*, 'Choose the mesh format:'
 print*, 'Enter 1 for HDF5'
@@ -86,19 +107,23 @@ else
         call hdfwrite() !> Calling the subroutine to generate mesh in HDF5 format
 stop
 end if
-!> call my subroutine test1
+!> call subroutine test1
 !> call <Mesh Analysis Functions>
+
   print*, 'Do you want to analyze the mesh? [y/n]
   read*, answer
 
   if (answer == y) then 
     call File_Skewness
-    print*, 'done: find the sum up in results_skewness.dat'
+    call test1(maxi_as)
+    call smoo
+    print*, 'done: find the sum up in results_skewness.dat result_ar.dat'
   elseif (answer == n) then 
     print*, 'done'
   else 
     print*, 'Unknown value... done'
   end if
+
 !> Call all the proper subroutine(s) by Damien, Prosun, Ahmed
 
 end program
