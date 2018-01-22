@@ -2,12 +2,9 @@
 ! this module works for ordering and obtaining the 4 points of every cell
   contains
 ! contains
-          !//////////////////////////////////////////////////////////////////////////////////////////////////
   subroutine test1(maxi_as)
-
 ! subroutine test1 to get the 4 points (4 corners) of every cell
   use module_getcells
-
 ! READ_MAP is the MODULE CONTAINS A FUNCTION FOR CONFORMAL OF CELLS AND NODES
   implicit none
 ! IMPLICIT NONE
@@ -44,7 +41,7 @@
  do i=1, (element_xtot-1)*(element_ytot-1)
 ! Here, I will use READ_MAP module : In this module, I can call 
 ! read (1,*) k,p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z                   ! import the data of points from the data file
-      !////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     P1 = map1(i)%P1
 !   first point of every cell in the mesh
     P2 = map1(i)%P2
@@ -53,7 +50,7 @@
 !   third point of every cell in the mesh
     P4 = map1(i)%P4
 !   fourth point of every cell in the mesh
-     !///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     p1x = P1%x
 !   X- component of first point of every cell
     p1y = P1%y
@@ -81,7 +78,7 @@
 !   Y- component of fourth point of every cell
     p4z = P4%z
 !   Z- component of fourth point of every cell
-                          !//////////////////////////////////////////////////////////////////////////////////////
+                          !//////////////////////////////////////////////////////////////////
 
     p1p2=(((p2x-p1x)**2)+(((p2y-p1y)**2))+(((p2z-p1z)**2)))**0.5
 !   the length magnitute between p1 and p2 points                 
@@ -92,7 +89,7 @@
     p4p1=(((p4x-p1x)**2)+(((p4y-p1y)**2))+(((p4z-p1z)**2)))**0.5 
 !   the length magnitute between p4 and p1 points     
     
-                          !//////////////////////////////////////////////////////////////////////////////////////
+                          !///////////////////////////////////////////////////////////////////
     as=(max(p1p2,p2p3,p3p4,p4p1))/(min(p1p2,p2p3,p3p4,p4p1))                    
 !   the aspect ratio of every cell    
     maxi_as = max(maxi_as, as) 
@@ -101,7 +98,7 @@
 !    print*, P1, P2, P3, P4
 !   print the 4 points(4 corners) of every cell
   end do
-                         !////////////////////////////////////////////////////////////////////////////////////////
+
 
    close(99)
    close(98)
