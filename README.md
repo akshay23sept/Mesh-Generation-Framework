@@ -2,7 +2,7 @@
 Mesh Generation Framework as a part of Fortran Project by IMP Turbulence 2019 Batch
 
 **Mesh with a special streching on wall normal direction**
-![alt text](https://github.com/akshay23sept/akshay23sept.github.io/blob/master/website/example.jpg)
+![alt text](https://github.com/akshay23sept/akshay23sept.github.io/blob/master/website/example_update.png)
 
 
 ### Compilation ###
